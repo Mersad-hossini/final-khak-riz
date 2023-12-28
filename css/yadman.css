@@ -1,0 +1,64 @@
+/* کلاس ها و ایدی های کلی */
+
+@font-face {
+    font-family: "yekan";
+    src: url("../fonts/Qs_Iranyekan\ medium.ttf");
+}
+
+body {
+    font-family: "yekan" !important;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+/* Filter Card */
+
+.filter-box {
+    background-color: gainsboro;
+    padding-bottom: 10px;
+    padding-top: 80px;
+    height: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+    .filter-box {
+        padding-top: 10px;
+        padding-bottom: 5px;
+    }
+}
+
+.border-box {
+    border: 1px solid rgb(192, 192, 192);
+    background-color: rgb(192, 192, 192);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.form-check-label {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* دکمه بعدی و قبلی  */
+
+.pagination {
+    display: inline-block;
+  }
+  
+  .pagination button {
+    color: black;
+    float: left;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 22px;
+  }
+  
+  .pagination button.active {
+    background-color: #4CAF50;
+    color: white;
+
+  }

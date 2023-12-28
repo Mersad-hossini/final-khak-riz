@@ -1,0 +1,37 @@
+/* کلاس ها و ایدی های کلی */
+
+@font-face {
+    font-family: "yekan";
+    src: url("../fonts/Qs_Iranyekan\ medium.ttf");
+}
+
+body {
+    font-family: "yekan" !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* استایل دهی به باکس عکس کتاب */
+
+.bgImgBook {
+    height: 240px;
+    border-radius: 90px 0 0 90px;
+    -webkit-border-radius: 90px 0 0 90px;
+    -moz-border-radius: 90px 0 0 90px;
+    -ms-border-radius: 90px 0 0 90px;
+    -o-border-radius: 90px 0 0 90px;
+    position: relative;
+    right: -16px;
+}
+
+
+.bgImgBook img {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin: 0 auto;
+}

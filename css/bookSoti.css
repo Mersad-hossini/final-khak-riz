@@ -1,0 +1,65 @@
+/* کلاس ها و ایدی های کلی */
+
+@font-face {
+    font-family: "yekan";
+    src: url("../fonts/Qs_Iranyekan\ medium.ttf");
+}
+
+
+body {
+    font-family: "yekan" !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btnBxBook {
+    height: 40px;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 18px;
+    width: 100%;
+}
+
+.imgSoti {
+    width: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    position: relative;
+    top: -405px;
+    right: -11px;
+}
+
+.imgSoti img {
+    position: relative;
+    right: 7px;
+    width: 16px;
+    bottom: 2px;
+}
+
+/* دکمه بعدی و قبلی  */
+
+.pagination {
+    display: inline-block;
+  }
+  
+  .pagination button {
+    color: black;
+    float: left;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 22px;
+  }
+  
+  .pagination button.active {
+    background-color: #4CAF50;
+    color: white;
+
+  }

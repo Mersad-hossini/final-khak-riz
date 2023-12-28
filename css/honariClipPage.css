@@ -1,0 +1,141 @@
+/* کلاس ها و ایدی های کلی */
+
+@font-face {
+    font-family: "yekan";
+    src: url("../fonts/Qs_Iranyekan\ medium.ttf");
+}
+
+
+body {
+    font-family: "yekan" !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* استایل دهی به هد صفحه */
+
+.section1 {
+    background-color: #04262B;
+    clip-path: polygon(0 0, 100% 0%, 100% 81%, 46% 100%, 0 85%);
+    height: 450px;
+}
+
+@media only screen and (max-width:991px) {
+    .section1 {
+        height: 300px;
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .section1 {
+        height: 250px;
+    }
+    .section1 .header-fontH4 {
+        font-size: 20px;
+    }
+    .section1 .header-fontP {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width:991px) {
+    .section1 .header-fontH4 {
+        font-size: 45px;
+    }
+    .section1 .header-fontP {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width:991px) {
+    .section1 .header-fontH4 {
+        font-size: 30px;
+    }
+    .section1 .header-fontP {
+        font-size: 25px;
+    }
+}
+
+.card-box-imgs {
+    border-radius: 5px 0 15% 15%;
+    width: 100%;
+    background-color: #ff1414;
+}
+
+.podcast-img {
+    cursor: pointer;
+}
+
+/* Progress card sound */
+
+.progress-container {
+    background: #e7e7e7;
+    border-radius: 15px;
+    cursor: pointer;
+    height: 10px;
+    direction: ltr;
+}
+
+.progress {
+    background: #242323;
+    border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+/* دکمه بعدی و قبلی  */
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination button {
+    color: black;
+    float: left;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 22px;
+}
+
+.pagination button.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+.download-podcast {
+    background-color: rgb(202, 156, 58);
+    color: #000;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 15px;
+    border: none;
+    width: 100%;
+}
+
+.download-podcast:hover {
+    background-color: rgb(173, 129, 32);
+    color: #000;
+}
+
+:root {
+    --bgCardImg: #870606;
+}
+
+/* استایل دهی به باکس عکس کتاب */
+
+.bgImgBook {
+    background-color: var(--bgCardImg);
+    height: 240px;
+    border-radius: 90px 0 0 90px;
+    -webkit-border-radius: 90px 0 0 90px;
+    -moz-border-radius: 90px 0 0 90px;
+    -ms-border-radius: 90px 0 0 90px;
+    -o-border-radius: 90px 0 0 90px;
+    position: relative;
+    right: -16px;
+}

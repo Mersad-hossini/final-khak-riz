@@ -1,0 +1,150 @@
+/* کلاس ها و ایدی های کلی */
+
+@font-face {
+    font-family: "yekan";
+    src: url("../fonts/Qs_Iranyekan\ medium.ttf");
+}
+
+
+
+body {
+    font-family: "yekan" !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* برای ایجاد یک خط و متن در وسط ان */
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.separator span {
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #1d1d1d;
+}
+
+/* رنگ مشکی برای دکمه های اسلایدر */
+
+.owl-theme 
+.owl-dots 
+.owl-dot.active span, 
+.owl-theme 
+.owl-dots 
+.owl-dot:hover span {
+    background-color: #000;
+}
+
+.owl-theme .owl-dots .owl-dot {
+    zoom: 1.3;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+    background-color: gray;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid #1d1d1d;
+}
+
+/* -------------------------------------------------------------- */
+/* section-1 (اسلاید عکس ) */
+
+.section-1 {
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(54,98,106,1) 100%);
+}
+
+.carousel-item-slider img {
+    width: 75rem;
+    height: 30rem;
+}
+
+/* -------------------------------------------------------------- */
+/* section-2 (معاونت ها) */
+  
+.card-assistance {
+    position: relative;
+    transition: 0.3s;
+    border: none;
+}
+
+.card-assistance:hover {
+    box-shadow: 10px 10px 10px #1d1d1d;
+}
+
+.card-assistance img {
+    width: 100%;
+    height: 175px;
+}
+
+.card-assistance .card-body-assistance {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+/* -------------------------------------------------------------- */
+/* Section-3,Section-4,Section-5  (اسلایدر کتاب های صوتی,کایپ و گالری عکس) */
+
+.soti {
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(54,98,106,1) 100%);
+}
+
+.gallery {
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(54,98,106,1) 100%);
+}
+
+.center {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* -------------------------------------------------------------- */
+/* section-6(نقشه استان بوشهر) */
+
+.mapdiv {
+    width: 45%;
+    margin: auto;
+}
+
+.mapdiv path {
+    transition: fill 0.3s;
+    cursor: pointer;
+}
+
+@media only screen and (max-width:991px) {
+    .mapdiv {
+        width: 50%; 
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width:761px) {
+    .mapdiv {
+        width: 70%; 
+        margin: auto;
+    }
+}

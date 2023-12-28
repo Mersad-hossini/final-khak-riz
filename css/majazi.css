@@ -1,0 +1,68 @@
+/* کلاس ها و ایدی های کلی */
+
+@font-face {
+    font-family: "yekan";
+    src: url("../fonts/Qs_Iranyekan\ medium.ttf");
+}
+
+body {
+    font-family: "yekan" !important;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+/* برای ایجاد یک خط و متن در وسط ان */
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.separator span {
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #1d1d1d;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid #1d1d1d;
+}
+
+/* -------------------------------------------------------------- */
+/* section-2 (معاونت ها) */
+  
+.card-assistance {
+    position: relative;
+    transition: 0.3s;
+    border: none;
+}
+
+.card-assistance:hover {
+    box-shadow: 10px 10px 10px #1d1d1d;
+}
+  
+.card-assistance img {
+    width: 100%;
+    height: auto;
+}
+  
+.card-assistance .card-body-assistance {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    white-space: nowrap;
+}

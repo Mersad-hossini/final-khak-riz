@@ -1,0 +1,145 @@
+/* کلاس ها و ایدی های کلی */
+
+@font-face {
+    font-family: "yekan";
+    src: url("../fonts/Qs_Iranyekan\ medium.ttf");
+}
+
+body {
+    font-family: "yekan" !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+.imgHedphone img {
+    position: relative;
+    top: -190px;
+    width: 35px;
+    right: 10px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    padding: 6px;
+}
+
+.imgHedphoneBx {
+    width: 30px;
+    height: 20px;
+}
+
+/* css buttonCard */
+
+.buttonCard {
+    margin-top: -40px;
+}
+
+
+/* css body page book soti */
+
+.bookSoti {
+    background-color: rgb(235, 248, 235);
+}
+
+/* css card body */
+
+.card-body a {
+    width: 100%;
+}
+
+.btnBxBook {
+    height: 40px;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* book mtni  */
+
+
+.bookMtni {
+    background-color: #f5efdc;
+}
+
+.Texthead {
+    margin-top: 20px;
+}
+
+/* Progress card sound */
+
+.progress-container {
+    background: #e7e7e7;
+    border-radius: 15px;
+    cursor: pointer;
+    height: 10px;
+    width: 80%;
+    direction: ltr;
+}
+
+.progress {
+    background: #242323;
+    border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.play-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+/* دکمه بعدی و قبلی  */
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination button {
+    color: black;
+    float: left;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 22px;
+}
+
+.pagination button.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+/* Modal */
+
+#podcast-modal .modal-img {
+    width: 100%;
+}
+
+.modal-content {
+    border-radius: 30px;
+}
+
+.modal-description {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.download-podcast {
+    background-color: rgb(202, 156, 58);
+    color: #000;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 15px;
+}
+
+.download-podcast:hover {
+    background-color: rgb(173, 129, 32);
+    color: #000;
+}
