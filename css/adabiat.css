@@ -37,7 +37,6 @@ a {
     margin-top: -40px;
 }
 
-
 /* css body page book soti */
 
 .bookSoti {
@@ -53,13 +52,11 @@ a {
 .btnBxBook {
     height: 40px;
     color: white;
-    font-weight: bolder;
     text-align: center;
     font-size: 18px;
 }
 
 /* book mtni  */
-
 
 .bookMtni {
     background-color: #f5efdc;

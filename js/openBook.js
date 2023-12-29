@@ -126,7 +126,12 @@ function getUrl(textBookArray) {
   let mainTxt = textBookArray.find((txt) => {
     return txt.title === getLocation;
   });
-  cardGenerator(mainTxt);
+
+  if (!mainTxt) {
+    window.location.href = "index.html";
+  } else {
+    cardGenerator(mainTxt);
+  }
 }
 
 function cardGenerator(mainTxtObj) {

@@ -143,12 +143,17 @@ function getUrl(sotiArray) {
   let mainSoti = sotiArray.find((soti) => {
     return soti.title === getLocation;
   });
-  cardGenerator(mainSoti);
+
+  if (!mainSoti) {
+    window.location.href = "index.html";
+  } else {
+    cardGenerator(mainSoti);
+  }
 }
 
 function cardGenerator(sotiObj) {
   let cardImg = `
-    <h4>معرفی  ${sotiObj.title}</h4>
+    <h3>معرفی  ${sotiObj.title}</h3>
     <hr>
     <img src="${sotiObj.img}" class="img-fluid d-block mt-3 float-start rounded-1 " style="width: 100%;"/>   
     `;

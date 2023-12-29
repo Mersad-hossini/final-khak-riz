@@ -184,8 +184,14 @@ function showInfo(yadmanData) {
   let mainYadman = yadmanData.find((yadman) => {
     return yadman.name === getLocation;
   });
-  generateSectin(mainYadman, yadmanData);
-  generateYadmanCard(mainYadman);
+
+  if (!mainYadman) {
+    window.location.href = "index.html";
+  } else {
+    generateSectin(mainYadman, yadmanData);
+    generateYadmanCard(mainYadman);
+  }
+  
 }
 
 function generateSectin(mainYadman, yadmanData) {
@@ -194,7 +200,7 @@ function generateSectin(mainYadman, yadmanData) {
   } else {
     containerInfo.insertAdjacentHTML(
       "beforeend",
-      `<div class="card p-5">
+      `<div class="card p-0 p-md-5">
       <img height="400px" src="./image/9414lgmuq.jpg" class="card-img-top img-fluid"
         alt="...">
       <div class="card-body">
