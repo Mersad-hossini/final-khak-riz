@@ -3,8 +3,39 @@ let downloadBtn = document.querySelector(".download");
 let infoContainer = document.querySelector(".info-container");
 let clipDescription = document.querySelector(".clip-description");
 
+function determineApiAndCall() {
+  let locationSearch = new URLSearchParams(location.search);
+  let key = "title"; // Adjust the key based on your needs
+  let getlocation = locationSearch.get(key);
+
+  let apiConditions = [
+    {
+      api: clipApi,
+      condition: (data) => data.some((item) => item[key] === getlocation),
+    },
+    {
+      api: motionApi,
+      condition: (data) => data.some((item) => item[key] === getlocation),
+    },
+  ];
+
+  for (let condition of apiConditions) {
+    let apiData = condition.api();
+
+    if (apiData && condition.condition(apiData)) {
+      let matchingItem = apiData.find((item) => item[key] === getlocation);
+
+      if (matchingItem) {
+        cardGenerator(matchingItem);
+        return;
+      }
+    }
+  }
+  window.location.href = "index.html";
+}
+
 function clipApi() {
-  let clipArray = [
+  return [
     {
       id: 1,
       img: "./image/book.jpg",
@@ -76,11 +107,10 @@ function clipApi() {
       editing: "من تدوین گر هستم",
     },
   ];
-  searchArrayByTitle(clipArray, "title");
 }
 
 function motionApi() {
-  let motionArray = [
+  return [
     {
       id: 1,
       img: "./image/book.jpg",
@@ -172,20 +202,6 @@ function motionApi() {
       director: "من کارگردان هستم",
     },
   ];
-  searchArrayByTitle(motionArray, "title");
-}
-
-function searchArrayByTitle(array, key) {
-  console.log(key);
-  let locationSearch = new URLSearchParams(location.search);
-  let getLocation = locationSearch.get(key);
-
-  if (getLocation) {
-    let item = array.find((array) => array.title === getLocation);
-    if (item) {
-      cardGenerator(item);
-    }
-  }
 }
 
 function cardGenerator(clipObj) {
@@ -229,5 +245,4 @@ function cardGenerator(clipObj) {
   clipDescription.insertAdjacentHTML("beforeend", descriptionCard);
 }
 
-motionApi();
-clipApi();
+window.addEventListener("load" , determineApiAndCall)

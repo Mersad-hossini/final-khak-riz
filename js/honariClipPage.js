@@ -1,10 +1,47 @@
-let videoContainer = document.querySelector(".video-container")
-let descriptionContainer = document.querySelector(".description-container")
-let infoContainer = document.querySelector(".info-container")
-let downloadBtn = document.querySelector(".download")
+let videoContainer = document.querySelector(".video-container");
+let descriptionContainer = document.querySelector(".description-container");
+let infoContainer = document.querySelector(".info-container");
+let downloadBtn = document.querySelector(".download");
+
+function determineApiAndCall() {
+  let locationSearch = new URLSearchParams(location.search);
+  let key = "title"; // Adjust the key based on your needs
+  let getlocation = locationSearch.get(key);
+
+  let apiConditions = [
+    {
+      api: filmApi,
+      condition: (data) => data.some((item) => item[key] === getlocation),
+    },
+    {
+      api: motionApi,
+      condition: (data) => data.some((item) => item[key] === getlocation),
+    },
+    {
+      api: videoMusicApi,
+      condition: (data) => data.some((item) => item[key] === getlocation),
+    },
+    // Add more conditions as needed
+  ];
+  
+  for (let condition of apiConditions) {
+    let apiData = condition.api();
+
+    if (apiData && condition.condition(apiData)) {
+      let matchingItem = apiData.find((item) => item[key] === getlocation);
+
+      if (matchingItem) {
+        // Call cardGenerator with the matching item
+        cardGenerator(matchingItem);
+        return; // Stop the loop once a matching API is found
+      }
+    }
+  }
+  window.location.href = "index.html"
+}
 
 function filmApi() {
-  let filmArray = [
+  return [
     {
       id: 1,
       img: "./image/book.jpg",
@@ -96,11 +133,10 @@ function filmApi() {
       actors: "بازیگران",
     },
   ];
-  searchArrayByTitle(filmArray, "title");
 }
 
 function motionApi() {
-  let motionArray = [
+  return [
     {
       id: 1,
       img: "./image/book.jpg",
@@ -192,11 +228,10 @@ function motionApi() {
       director: "من کارگردان هستم",
     },
   ];
-  searchArrayByTitle(motionArray, "title");
 }
 
 function videoMusicApi() {
-  let videoMusicArray = [
+  return [
     {
       id: 1,
       img: "./image/book.jpg",
@@ -298,45 +333,32 @@ function videoMusicApi() {
       composer: "اهنگساز هستم",
     },
   ];
-  searchArrayByTitle(videoMusicArray, "title");
-}
-
-function searchArrayByTitle(array, key) {
-  let locationSearch = new URLSearchParams(location.search);
-  let getLocation = locationSearch.get(key);
-
-  if (getLocation) {
-    let item = array.find((array) => array.title === getLocation);
-    if (item) {
-      cardGenerator(item);
-    }
-  }
 }
 
 function cardGenerator(clipObj) {
   // Check if individual properties are undefined and provide default values
-    let title = clipObj.title || "-";
-    let img = clipObj.img || "./default-image.jpg";
-    let clip = clipObj.clip || "./default-video.mp4";
-    let designer = clipObj.designer || "—"
-    let editing = clipObj.editing || "—";
-    let director = clipObj.director || "—"
-    let singer = clipObj.singer || "—"
-    let poet = clipObj.poet || "—"
-    let composer = clipObj.composer || "—"  
-    let writer = clipObj.writer || "—"  
-    let actors = clipObj.actors || "—"  
+  let title = clipObj.title || "-";
+  let img = clipObj.img || "./default-image.jpg";
+  let clip = clipObj.clip || "./default-video.mp4";
+  let designer = clipObj.designer || "—";
+  let editing = clipObj.editing || "—";
+  let director = clipObj.director || "—";
+  let singer = clipObj.singer || "—";
+  let poet = clipObj.poet || "—";
+  let composer = clipObj.composer || "—";
+  let writer = clipObj.writer || "—";
+  let actors = clipObj.actors || "—";
 
-    let cardVideo = `
+  let cardVideo = `
         <h4>${title}</h4>
         <hr>
         <div class="card-body p-0 m-0">
         <video poster="${img}" class="img-fluid" controls>
             <source src="${clip}">
         </video>
-        </div>`
+        </div>`;
 
-    let cardInfo = `
+  let cardInfo = `
         <hr>
         <h5>خواننده:
             <p class="d-inline-block mt-2">${singer}</p>
@@ -353,19 +375,17 @@ function cardGenerator(clipObj) {
         <h5>طراح:
             <p class="d-inline-block mt-2">${designer}</p>
         <h5>اهنگ ساز:
-            <p class="d-inline-block mt-2">${composer}</p>`
+            <p class="d-inline-block mt-2">${composer}</p>`;
 
-    let descriptionCard = `
+  let descriptionCard = `
         <hr class="mt-4 ">
         <h3>معرفی ${title}</h3>
         <p>${director}</p>`;
 
-    videoContainer.insertAdjacentHTML("beforeend",cardVideo)
-    infoContainer.insertAdjacentHTML("beforeend",cardInfo)
-    descriptionContainer.insertAdjacentHTML("beforeend",descriptionCard)
-    downloadBtn.setAttribute("href" , clip)       
+  videoContainer.insertAdjacentHTML("beforeend", cardVideo);
+  infoContainer.insertAdjacentHTML("beforeend", cardInfo);
+  descriptionContainer.insertAdjacentHTML("beforeend", descriptionCard);
+  downloadBtn.setAttribute("href", clip);
 }
 
-filmApi();
-motionApi();
-videoMusicApi();
+window.addEventListener("load" , determineApiAndCall)
