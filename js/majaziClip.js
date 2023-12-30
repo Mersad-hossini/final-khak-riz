@@ -10,9 +10,9 @@ if (getLocation === "videoClip") {
     clipApi();
 } else if (getLocation === "motinGrapic") {
     motionApi();
-} else [
+} else {
     window.location.href = "index.html"
-]
+}
 
 function clipApi() {
   let clipArray = [

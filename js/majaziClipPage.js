@@ -176,6 +176,7 @@ function motionApi() {
 }
 
 function searchArrayByTitle(array, key) {
+  console.log(key);
   let locationSearch = new URLSearchParams(location.search);
   let getLocation = locationSearch.get(key);
 
@@ -203,6 +204,7 @@ function cardGenerator(clipObj) {
             <video poster="${img}" class="img-fluid" controls>
                 <source src="${clip}">
             </video>
+        </div>
         `;
 
   let cardInfo = `
