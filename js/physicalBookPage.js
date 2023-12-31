@@ -1,6 +1,7 @@
 let imageContainer = document.querySelector(".image-container");
 let detailsContainer = document.querySelector(".details-container");
 let bookDescription = document.querySelector(".book-description");
+let bookAddressBtn = document.querySelector(".book-address");
 
 function physicalBookApi() {
   let physicalBooks = [
@@ -158,4 +159,7 @@ function cardGenerator(bookObj) {
   bookDescription.insertAdjacentHTML("beforeend", cardDescription);
 }
 
+bookAddressBtn.addEventListener("click" , () => {
+    window.scrollTo(0, document.body.scrollHeight);
+})
 window.addEventListener("load", physicalBookApi);

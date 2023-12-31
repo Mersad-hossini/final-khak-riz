@@ -17,7 +17,6 @@ a {
 .btnBxBook {
     height: 40px;
     color: white;
-    font-weight: bolder;
     text-align: center;
     font-size: 18px;
     width: 100%;
@@ -61,5 +60,4 @@ a {
   .pagination button.active {
     background-color: #4CAF50;
     color: white;
-
   }
