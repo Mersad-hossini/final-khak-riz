@@ -3,111 +3,20 @@ let currentPage = 1;
 let rowsCount = 9;
 const paginationContainer = document.getElementById("pagination");
 
-function physicalBookApi() {
-  let physicalBooks = [
-    {
-      id: 1,
-      img: "./image/book6.jfif",
-      title: "کتاب 1",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      PublishAddress: "بوشهر",
-      dataPublish: 20,
-      des: "وقتی کسی نبود دستت رو بگیره، دستت رو بکن تو جیبت و برو جلو.",
-    },
-    {
-      id: 2,
-      img: "./image/book6.jfif",
-      title: "کتاب 2",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      PublishAddress: "سیراز",
-      dataPublish: 20,
-      des: "وقتی کسی نبود دستت رو بگیره، دستت رو بکن تو جیبت و برو جلو.",
-    },
-    {
-      id: 3,
-      img: "./image/book6.jfif",
-      title: "کتاب 3",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      PublishAddress: "مشهد",
-      dataPublish: 20,
-      des: "وقتی کسی نبود دستت رو بگیره، دستت رو بکن تو جیبت و برو جلو.",
-    },
-    {
-      id: 4,
-      img: "./image/book6.jfif",
-      title: "کتاب 4",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      PublishAddress: "خوزستان",
-      dataPublish: 20,
-      des: "وقتی کسی نبود دستت رو بگیره، دستت رو بکن تو جیبت و برو جلو.",
-    },
-    {
-      id: 5,
-      img: "./image/book6.jfif",
-      title: "کتاب 5",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      PublishAddress: "تهران",
-      dataPublish: 20,
-      des: "وقتی کسی نبود دستت رو بگیره، دستت رو بکن تو جیبت و برو جلو.",
-    },
-    {
-      id: 6,
-      img: "./image/book6.jfif",
-      title: "کتاب 6",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      PublishAddress: "کرج",
-      dataPublish: 20,
-      des: "وقتی کسی نبود دستت رو بگیره، دستت رو بکن تو جیبت و برو جلو.",
-    },
-    {
-      id: 7,
-      img: "./image/book6.jfif",
-      title: "کتاب 7",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      PublishAddress: "اراک",
-      dataPublish: 20,
-      des: "وقتی کسی نبود دستت رو بگیره، دستت رو بکن تو جیبت و برو جلو.",
-    },
-    {
-      id: 8,
-      img: "./image/book6.jfif",
-      title: "کتاب 8",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      PublishAddress: "اصفهان",
-      dataPublish: 20,
-      des: "وقتی کسی نبود دستت رو بگیره، دستت رو بکن تو جیبت و برو جلو.",
-    },
-    {
-      id: 9,
-      img: "./image/book6.jfif",
-      title: "کتاب 9",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      PublishAddress: "ساری",
-      dataPublish: 20,
-      des: "وقتی کسی نبود دستت رو بگیره، دستت رو بکن تو جیبت و برو جلو.",
-    },
-    {
-      id: 10,
-      img: "./image/book6.jfif",
-      title: "کتاب 10",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      PublishAddress: "لرستان",
-      dataPublish: 20,
-      des: "وقتی کسی نبود دستت رو بگیره، دستت رو بکن تو جیبت و برو جلو.",
-    },
-  ];
-  displayPhysicalBook(physicalBooks,physicalBookContainer, rowsCount,currentPage);
-  setUpPagination(physicalBooks, paginationContainer, rowsCount)
+async function physicalBookApi() {
+  let res = "";
+  let physicalBookArray = "";
+  try {
+    res = await fetch("data/physicalBook.json");
+    if (res.ok) {
+      physicalBookArray = await res.json();
+      console.log(physicalBookArray);
+      displayPhysicalBook(physicalBookArray,physicalBookContainer, rowsCount,currentPage);
+      setUpPagination(physicalBookArray, paginationContainer, rowsCount)
+    }
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 function cardGenerator(BookArray) {

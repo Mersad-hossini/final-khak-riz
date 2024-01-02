@@ -57,6 +57,10 @@ a {
     border-bottom: 2px solid #1d1d1d;
 }
 
+.slider-button {
+    font-size: 18px;
+}
+
 /* -------------------------------------------------------------- */
 /* section-1 (اسلاید عکس ) */
 
@@ -68,6 +72,12 @@ a {
 .carousel-item-slider img {
     width: 75rem;
     height: 25rem;
+}
+
+@media only screen and (max-width:767px) {
+    .carousel-item-slider img {
+        height: 20rem;
+    }
 }
 
 /* -------------------------------------------------------------- */

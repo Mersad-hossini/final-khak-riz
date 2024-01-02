@@ -3,81 +3,20 @@ let currentPage = 1;
 let rowsCount = 9;
 const paginationContainer = document.getElementById("pagination");
 
-function majaziGrapicApi() {
-  let majaziGrapicArray = [
-    {
-      id: 1,
-      img: "./image/book.jpg",
-      title: "اثر شماره 1",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      designer: "من طراح هستم",
-    },
-    {
-      id: 2,
-      img: "./image/book.jpg",
-      title: "اثر شماره 2",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      designer: "من طراح هستم",
-    },
-    {
-      id: 3,
-      img: "./image/book.jpg",
-      title: "اثر شماره 3",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      designer: "من طراح هستم",
-    },
-    {
-      id: 4,
-      img: "./image/book.jpg",
-      title: "اثر شماره 4",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      designer: "من طراح هستم",
-    },
-    {
-      id: 5,
-      img: "./image/book.jpg",
-      title: "اثر شماره 5",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      designer: "من طراح هستم",
-    },
-    {
-      id: 6,
-      img: "./image/book.jpg",
-      title: "اثر شماره 6",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      designer: "من طراح هستم",
-    },
-    {
-      id: 7,
-      img: "./image/book.jpg",
-      title: "اثر شماره 7",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      designer: "من طراح هستم",
-    },
-    {
-      id: 8,
-      img: "./image/book.jpg",
-      title: "اثر شماره 8",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      designer: "من طراح هستم",
-    },
-    {
-      id: 9,
-      img: "./image/book.jpg",
-      title: "اثر شماره 9",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      designer: "من طراح هستم",
-    },
-    {
-      id: 10,
-      img: "./image/book.jpg",
-      title: "اثر شماره 10",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      designer: "من طراح هستم",
-    },
-  ];
-  displayGrapicImg(majaziGrapicArray, majaziContaienr, rowsCount, currentPage);
-  setUpPagination(majaziGrapicArray, paginationContainer, rowsCount);
+async function majaziGrapicApi() {
+  let res = "";
+  let majaziGrapicArray = "";
+  try {
+    res = await fetch("data/majaziGrapic.json");
+    if (res.ok) {
+      majaziGrapicArray = await res.json();
+      console.log(majaziGrapicArray);
+      displayGrapicImg(majaziGrapicArray, majaziContaienr, rowsCount, currentPage);
+      setUpPagination(majaziGrapicArray, paginationContainer, rowsCount);
+    }
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 function cardGenerator(majaziArray) {

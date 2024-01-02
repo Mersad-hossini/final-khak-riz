@@ -1,246 +1,34 @@
 let sotiContainer = document.querySelector(".soti-container");
 let textBookContainer = document.querySelector(".text-bookContainer");
 
-function adabiatSotiApi() {
-  let adabiatSotiArray = [
-    {
-      id: 1,
-      img: "./image/book.jpg",
-      title: "کتاب صوتی 1",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "بوشهر",
-      sound:'./media/bazar.m4a',
-    },
-    {
-      id: 2,
-      img: "./image/book.jpg",
-      title: "کتاب صوتی 2",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "تهران",
-      sound:'./media/bazar.m4a',
-    },
-    {
-      id: 3,
-      img: "./image/book.jpg",
-      title: "کتاب صوتی 3",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "شیراز",
-      sound:'./media/bazar.m4a',
-    },
-    {
-      id: 4,
-      img: "./image/book.jpg",
-      title: "کتاب صوتی 4",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "ساری",
-      sound:'./media/bazar.m4a',
-    },
-    {
-      id: 5,
-      img: "./image/book.jpg",
-      title: "کتاب صوتی 5",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "خوزستان",
-      sound:'./media/bazar.m4a',
-    },
-    {
-      id: 6,
-      img: "./image/book.jpg",
-      title: "کتاب صوتی 6",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "کرج",
-      sound:'./media/bazar.m4a',
-    },
-    {
-      id: 7,
-      img: "./image/book.jpg",
-      title: "کتاب صوتی 7",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "هرمزگان",
-      sound:'./media/bazar.m4a',
-    },
-    {
-      id: 8,
-      img: "./image/book.jpg",
-      title: "کتاب صوتی 8",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "اصفهان",
-      sound:'./media/bazar.m4a',
-    },
-    {
-      id: 9,
-      img: "./image/book.jpg",
-      title: "کتاب صوتی 9",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "مشهد",
-      sound:'./media/bazar.m4a',
-    },
-    {
-      id: 10,
-      img: "./image/book.jpg",
-      title: "کتاب صوتی 10",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "لرستان",
-      sound:'./media/bazar.m4a',
-    },
-  ];
-  sotiSeparator(adabiatSotiArray);
+async function adabiatSotiApi() {
+  let res = "";
+  let adabiatSotiArray = "";
+  try {
+    res = await fetch("data/adabiatSoti.json");
+    if (res.ok) {
+      adabiatSotiArray = await res.json();
+      console.log(adabiatSotiArray);
+      sotiSeparator(adabiatSotiArray);
+    }
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-function adabiatTextApi() {
-  let adabiatTextArray = [
-    {
-      id: 1,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 1",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "بوشهر",
-    },
-    {
-      id: 2,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 2",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "تهران",
-    },
-    {
-      id: 3,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 3",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "شیراز",
-    },
-    {
-      id: 4,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 4",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "ساری",
-    },
-    {
-      id: 5,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 5",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "خوزستان",
-    },
-    {
-      id: 6,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 6",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "کرج",
-    },
-    {
-      id: 7,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 7",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "هرمزگان",
-    },
-    {
-      id: 8,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 8",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "اصفهان",
-    },
-    {
-      id: 9,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 9",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "مشهد",
-    },
-    {
-      id: 10,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 10",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "لرستان",
-    },
-  ];
-  cardTextSeparator(adabiatTextArray);
+async function adabiatTextApi() {
+  let res = "";
+  let adabiatTextArray = "";
+  try {
+    res = await fetch("data/adabiatText.json");
+    if (res.ok) {
+      adabiatTextArray = await res.json();
+      console.log(adabiatTextArray);
+      cardTextSeparator(adabiatTextArray);
+    }
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 
@@ -320,7 +108,7 @@ function cardTextGenerator(newtextBookArray) {
             <h4 class="text-start">${txt.title}</h4>
             <p class="card-text text-start">${txt.des.substring(0,30)}</p>
             <div class="botn">
-              <a href="./openBook.html?title=${txt.title}" class="btn btn-sm btn-primary border-0 float-end btnBxBook">مشاهده</a>
+              <a href="./openBook.html?title=${txt.title}" class="btn btn-sm btn-success border-0 float-end btnBxBook">مشاهده</a>
             </div>
           </div>
         </div>

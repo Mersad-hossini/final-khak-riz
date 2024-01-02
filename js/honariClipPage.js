@@ -3,7 +3,7 @@ let descriptionContainer = document.querySelector(".description-container");
 let infoContainer = document.querySelector(".info-container");
 let downloadBtn = document.querySelector(".download");
 
-function determineApiAndCall() {
+async function determineApiAndCall() {
   let locationSearch = new URLSearchParams(location.search);
   let key = "title"; // Adjust the key based on your needs
   let getlocation = locationSearch.get(key);
@@ -25,7 +25,7 @@ function determineApiAndCall() {
   ];
   
   for (let condition of apiConditions) {
-    let apiData = condition.api();
+    let apiData = await condition.api();
 
     if (apiData && condition.condition(apiData)) {
       let matchingItem = apiData.find((item) => item[key] === getlocation);
@@ -40,299 +40,46 @@ function determineApiAndCall() {
   window.location.href = "index.html"
 }
 
-function filmApi() {
-  return [
-    {
-      id: 1,
-      img: "./image/book.jpg",
-      title: "فیلم 1",
-      clip: "./media/Rec 0001.mp4",
-      writer: "من نویسنده هستم",
-      director: "من کارگردان هستم",
-      actors: "بازیگران",
-    },
-    {
-      id: 2,
-      img: "./image/book.jpg",
-      title: "فیلم 2",
-      clip: "./media/Rec 0001.mp4",
-      writer: "من نویسنده هستم",
-      director: "من کارگردان هستم",
-      actors: "بازیگران",
-    },
-    {
-      id: 3,
-      img: "./image/book.jpg",
-      title: "فیلم 3",
-      clip: "./media/Rec 0001.mp4",
-      writer: "من نویسنده هستم",
-      director: "من کارگردان هستم",
-      actors: "بازیگران",
-    },
-    {
-      id: 4,
-      img: "./image/book.jpg",
-      title: "فیلم 4",
-      clip: "./media/Rec 0001.mp4",
-      writer: "من نویسنده هستم",
-      director: "من کارگردان هستم",
-      actors: "بازیگران",
-    },
-    {
-      id: 5,
-      img: "./image/book.jpg",
-      title: "فیلم 5",
-      clip: "./media/Rec 0001.mp4",
-      writer: "من نویسنده هستم",
-      director: "من کارگردان هستم",
-      actors: "بازیگران",
-    },
-    {
-      id: 6,
-      img: "./image/book.jpg",
-      title: "فیلم 6",
-      clip: "./media/Rec 0001.mp4",
-      writer: "من نویسنده هستم",
-      director: "من کارگردان هستم",
-      actors: "بازیگران",
-    },
-    {
-      id: 7,
-      img: "./image/book.jpg",
-      title: "فیلم 7",
-      clip: "./media/Rec 0001.mp4",
-      writer: "من نویسنده هستم",
-      director: "من کارگردان هستم",
-      actors: "بازیگران",
-    },
-    {
-      id: 8,
-      img: "./image/book.jpg",
-      title: "فیلم 8",
-      clip: "./media/Rec 0001.mp4",
-      writer: "من نویسنده هستم",
-      director: "من کارگردان هستم",
-      actors: "بازیگران",
-    },
-    {
-      id: 9,
-      img: "./image/book.jpg",
-      title: "فیلم 9",
-      clip: "./media/Rec 0001.mp4",
-      writer: "من نویسنده هستم",
-      director: "من کارگردان هستم",
-      actors: "بازیگران",
-    },
-    {
-      id: 10,
-      img: "./image/book.jpg",
-      title: "فیلم 10",
-      clip: "./media/Rec 0001.mp4",
-      writer: "من نویسنده هستم",
-      director: "من کارگردان هستم",
-      actors: "بازیگران",
-    },
-  ];
+async function filmApi() {
+  let res = "";
+  let honariFilmArray = "";
+  try {
+    res = await fetch("data/honariFilm.json");
+    if (res.ok) {
+      honariFilmArray = await res.json();
+    }
+  } catch (err) {
+    console.log(err);
+  }
+  return honariFilmArray
 }
 
-function motionApi() {
-  return [
-    {
-      id: 1,
-      img: "./image/book.jpg",
-      title: "موشن 1",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-    {
-      id: 2,
-      img: "./image/book.jpg",
-      title: "موشن 2",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-    {
-      id: 3,
-      img: "./image/book.jpg",
-      title: "موشن 3",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-    {
-      id: 4,
-      img: "./image/book.jpg",
-      title: "موشن 4",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-    {
-      id: 5,
-      img: "./image/book.jpg",
-      title: "موشن 5",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-    {
-      id: 6,
-      img: "./image/book.jpg",
-      title: "موشن 6",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-    {
-      id: 7,
-      img: "./image/book.jpg",
-      title: "موشن 7",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-    {
-      id: 8,
-      img: "./image/book.jpg",
-      title: "موشن 8",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-    {
-      id: 9,
-      img: "./image/book.jpg",
-      title: "موشن 9",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-    {
-      id: 10,
-      img: "./image/book.jpg",
-      title: "موشن 10",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-  ];
+async function motionApi() {
+  let res = "";
+  let honariMotionArray = "";
+  try {
+    res = await fetch("data/honariMotion.json");
+    if (res.ok) {
+      honariMotionArray = await res.json();
+    }
+  } catch (err) {
+    console.log(err);
+  }  
+  return honariMotionArray
 }
 
-function videoMusicApi() {
-  return [
-    {
-      id: 1,
-      img: "./image/book.jpg",
-      clip: "./media/Rec 0001.mp4",
-      title: "ویدئو موزیک 1",
-      singer: "خواننده هستم",
-      director: "کارگردان هستم",
-      poet: "شاعر هستم",
-      composer: "اهنگساز هستم",
-    },
-    {
-      id: 2,
-      img: "./image/book.jpg",
-      clip: "./media/Rec 0001.mp4",
-      title: "ویدئو موزیک 2",
-      singer: "خواننده هستم",
-      director: "کارگردان هستم",
-      poet: "شاعر هستم",
-      composer: "اهنگساز هستم",
-    },
-    {
-      id: 3,
-      img: "./image/book.jpg",
-      clip: "./media/Rec 0001.mp4",
-      title: "ویدئو موزیک 3",
-      singer: "خواننده هستم",
-      director: "کارگردان هستم",
-      poet: "شاعر هستم",
-      composer: "اهنگساز هستم",
-    },
-    {
-      id: 4,
-      img: "./image/book.jpg",
-      clip: "./media/Rec 0001.mp4",
-      title: "ویدئو موزیک 4",
-      singer: "خواننده هستم",
-      director: "کارگردان هستم",
-      poet: "شاعر هستم",
-      composer: "اهنگساز هستم",
-    },
-    {
-      id: 5,
-      img: "./image/book.jpg",
-      clip: "./media/Rec 0001.mp4",
-      title: "ویدئو موزیک 5",
-      singer: "خواننده هستم",
-      director: "کارگردان هستم",
-      poet: "شاعر هستم",
-      composer: "اهنگساز هستم",
-    },
-    {
-      id: 6,
-      img: "./image/book.jpg",
-      clip: "./media/Rec 0001.mp4",
-      title: "ویدئو موزیک 6",
-      singer: "خواننده هستم",
-      director: "کارگردان هستم",
-      poet: "شاعر هستم",
-      composer: "اهنگساز هستم",
-    },
-    {
-      id: 7,
-      img: "./image/book.jpg",
-      clip: "./media/Rec 0001.mp4",
-      title: "ویدئو موزیک 7",
-      singer: "خواننده هستم",
-      director: "کارگردان هستم",
-      poet: "شاعر هستم",
-      composer: "اهنگساز هستم",
-    },
-    {
-      id: 8,
-      img: "./image/book.jpg",
-      clip: "./media/Rec 0001.mp4",
-      title: "ویدئو موزیک 8",
-      singer: "خواننده هستم",
-      director: "کارگردان هستم",
-      poet: "شاعر هستم",
-      composer: "اهنگساز هستم",
-    },
-    {
-      id: 9,
-      img: "./image/book.jpg",
-      clip: "./media/Rec 0001.mp4",
-      title: "ویدئو موزیک 9",
-      singer: "خواننده هستم",
-      director: "کارگردان هستم",
-      poet: "شاعر هستم",
-      composer: "اهنگساز هستم",
-    },
-    {
-      id: 10,
-      img: "./image/book.jpg",
-      clip: "./media/Rec 0001.mp4",
-      title: "ویدئو موزیک 10",
-      singer: "خواننده هستم",
-      director: "کارگردان هستم",
-      poet: "شاعر هستم",
-      composer: "اهنگساز هستم",
-    },
-  ];
+async function videoMusicApi() {
+  let res = "";
+  let videoMusicArray = "";
+  try {
+    res = await fetch("data/honariVideoMusic.json");
+    if (res.ok) {
+      videoMusicArray = await res.json();
+    }
+  } catch (err) {
+    console.log(err);
+  }    
+  return videoMusicArray
 }
 
 function cardGenerator(clipObj) {

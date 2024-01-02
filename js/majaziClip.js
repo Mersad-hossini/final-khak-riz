@@ -14,178 +14,37 @@ if (getLocation === "videoClip") {
     window.location.href = "index.html"
 }
 
-function clipApi() {
-  let clipArray = [
-    {
-      id: 1,
-      img: "./image/book.jpg",
-      title: "کلیپ 1",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-    },
-    {
-      id: 2,
-      img: "./image/book.jpg",
-      title: "کلیپ 2",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-    },
-    {
-      id: 3,
-      img: "./image/book.jpg",
-      title: "کلیپ 3",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-    },
-    {
-      id: 4,
-      img: "./image/book.jpg",
-      title: "کلیپ 4",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-    },
-    {
-      id: 5,
-      img: "./image/book.jpg",
-      title: "کلیپ 5",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-    },
-    {
-      id: 6,
-      img: "./image/book.jpg",
-      title: "کلیپ 6",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-    },
-    {
-      id: 7,
-      img: "./image/book.jpg",
-      title: "کلیپ 7",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-    },
-    {
-      id: 8,
-      img: "./image/book.jpg",
-      title: "کلیپ 8",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-    },
-    {
-      id: 9,
-      img: "./image/book.jpg",
-      title: "کلیپ 9",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-    },
-    {
-      id: 10,
-      img: "./image/book.jpg",
-      title: "کلیپ 10",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-    },
-  ];
-  displayClipCard(clipArray,clipContainer,rowsCount,currentPage)
-  setUpPagination(clipArray, paginationContainer, rowsCount)
+async function clipApi() {
+  let res = "";
+  let majaziClipArray = "";
+  try {
+    res = await fetch("data/majaziClip.json");
+    if (res.ok) {
+      majaziClipArray = await res.json();
+      console.log(majaziClipArray);
+      displayClipCard(majaziClipArray,clipContainer,rowsCount,currentPage)
+      setUpPagination(majaziClipArray, paginationContainer, rowsCount)
+    }
+  } catch (err) {
+    console.log(err);
+  }
+
 }
 
-function motionApi() {
-  let motinArray = [
-    {
-      id: 1,
-      img: "./image/book.jpg",
-      title: "موشن 1",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-    {
-      id: 2,
-      img: "./image/book.jpg",
-      title: "موشن 2",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-    {
-      id: 3,
-      img: "./image/book.jpg",
-      title: "موشن 3",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-    {
-      id: 4,
-      img: "./image/book.jpg",
-      title: "موشن 4",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-    {
-      id: 5,
-      img: "./image/book.jpg",
-      title: "موشن 5",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-    {
-      id: 6,
-      img: "./image/book.jpg",
-      title: "موشن 6",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-    {
-      id: 7,
-      img: "./image/book.jpg",
-      title: "موشن 7",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-    {
-      id: 8,
-      img: "./image/book.jpg",
-      title: "موشن 8",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-    {
-      id: 9,
-      img: "./image/book.jpg",
-      title: "موشن 9",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-    {
-      id: 10,
-      img: "./image/book.jpg",
-      title: "موشن 10",
-      clip: "./media/Rec 0001.mp4",
-      editing: "من تدوین گر هستم",
-      designer: "من طراح هستم",
-      director: "من کارگردان هستم",
-    },
-  ];
-  displayClipCard(motinArray,clipContainer,rowsCount,currentPage)
-  setUpPagination(motinArray, paginationContainer, rowsCount)
+async function motionApi() {
+  let res = "";
+  let majaziMotinArray = "";
+  try {
+    res = await fetch("data/majaziMotion.json");
+    if (res.ok) {
+      majaziMotinArray = await res.json();
+      console.log(majaziMotinArray);
+      displayClipCard(majaziMotinArray,clipContainer,rowsCount,currentPage)
+      setUpPagination(majaziMotinArray, paginationContainer, rowsCount)
+    }
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 function cardGenerator(clipArray) {

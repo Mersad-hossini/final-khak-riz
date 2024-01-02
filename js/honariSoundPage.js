@@ -10,120 +10,19 @@ let progressContainer = document.querySelector(".progress-container");
 let progress = document.querySelector(".progress");
 let downloadSoundBtn = document.querySelector(".download-podcast");
 
-function honariSoundApi() {
-  let honariSoundArray = [
-    {
-      id: 1,
-      img: "./image/book.jpg",
-      title: "صوت شماره 1",
-      audio: "./media/bazar.m4a",
-      actors: "بازیگران",
-      editing: "ادیتور هستم",
-      writer: "نویسنده هستمم",
-      director: "کارگردان هستم",
-      designer: "من طراح هستم",
-    },
-    {
-      id: 2,
-      img: "./image/book.jpg",
-      title: "صوت شماره 2",
-      audio: "./media/html.m4a",
-      actors: "بازیگران",
-      editing: "ادیتور هستم",
-      writer: "نویسنده هستمم",
-      director: "کارگردان هستم",
-      designer: "من طراح هستم",
-    },
-    {
-      id: 3,
-      img: "./image/book.jpg",
-      title: "صوت شماره 3",
-      audio: "./media/kar.m4a",
-      actors: "بازیگران",
-      editing: "ادیتور هستم",
-      writer: "نویسنده هستمم",
-      director: "کارگردان هستم",
-      designer: "من طراح هستم",
-    },
-    {
-      id: 4,
-      img: "./image/book.jpg",
-      title: "صوت شماره 4",
-      audio: "./media/bazar.m4a",
-      actors: "بازیگران",
-      editing: "ادیتور هستم",
-      writer: "نویسنده هستمم",
-      director: "کارگردان هستم",
-      designer: "من طراح هستم",
-    },
-    {
-      id: 5,
-      img: "./image/book.jpg",
-      title: "صوت شماره 5",
-      audio: "./media/html.m4a",
-      actors: "بازیگران",
-      editing: "ادیتور هستم",
-      writer: "نویسنده هستمم",
-      director: "کارگردان هستم",
-      designer: "من طراح هستم",
-    },
-    {
-      id: 6,
-      img: "./image/book.jpg",
-      title: "صوت شماره 6",
-      audio: "./media/kar.m4a",
-      actors: "بازیگران",
-      editing: "ادیتور هستم",
-      writer: "نویسنده هستمم",
-      director: "کارگردان هستم",
-      designer: "من طراح هستم",
-    },
-    {
-      id: 7,
-      img: "./image/book.jpg",
-      title: "صوت شماره 7",
-      audio: "./media/bazar.m4a",
-      actors: "بازیگران",
-      editing: "ادیتور هستم",
-      writer: "نویسنده هستمم",
-      director: "کارگردان هستم",
-      designer: "من طراح هستم",
-    },
-    {
-      id: 8,
-      img: "./image/book.jpg",
-      title: "صوت شماره 8",
-      audio: "./media/html.m4a",
-      actors: "بازیگران",
-      editing: "ادیتور هستم",
-      writer: "نویسنده هستمم",
-      director: "کارگردان هستم",
-      designer: "من طراح هستم",
-    },
-    {
-      id: 9,
-      img: "./image/book.jpg",
-      title: "صوت شماره 9",
-      audio: "./media/kar.m4a",
-      actors: "بازیگران",
-      editing: "ادیتور هستم",
-      writer: "نویسنده هستمم",
-      director: "کارگردان هستم",
-      designer: "من طراح هستم",
-    },
-    {
-      id: 10,
-      img: "./image/book.jpg",
-      title: "صوت شماره 10",
-      audio: "./media/bazar.m4a",
-      actors: "بازیگران",
-      editing: "ادیتور هستم",
-      writer: "نویسنده هستمم",
-      director: "کارگردان هستم",
-      designer: "من طراح هستم",
-    },
-  ];
-  getUrl(honariSoundArray);
+async function honariSoundApi() {
+  let res = "";
+  let honariSoundArray = "";
+  try {
+    res = await fetch("data/honariSound.json");
+    if (res.ok) {
+      honariSoundArray = await res.json();
+      console.log(honariSoundArray);
+      getUrl(honariSoundArray)
+    }
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 function getUrl(sotiArray) {
@@ -152,7 +51,7 @@ function cardGenerator(sotiObj) {
     <h5>بازیگران:
         <p class="d-inline-block">${sotiObj.actors}</p>
     </h5>
-    <h5>ندوین:
+    <h5>تدوین :
         <p class="d-inline-block mt-2">${sotiObj.editing}</p>
     </h5>
     <h5>نویسنده:

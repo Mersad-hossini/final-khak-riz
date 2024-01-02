@@ -3,121 +3,21 @@ let currentPage = 1;
 let rowsCount = 9;
 const paginationContainer = document.getElementById("pagination");
 
-function adabiatTextApi() {
-  let adabiatTextArray = [
-    {
-      id: 1,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 1",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "بوشهر",
-    },
-    {
-      id: 2,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 2",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "تهران",
-    },
-    {
-      id: 3,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 3",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "شیراز",
-    },
-    {
-      id: 4,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 4",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "ساری",
-    },
-    {
-      id: 5,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 5",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "خوزستان",
-    },
-    {
-      id: 6,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 6",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "کرج",
-    },
-    {
-      id: 7,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 7",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "هرمزگان",
-    },
-    {
-      id: 8,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 8",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "اصفهان",
-    },
-    {
-      id: 9,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 9",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "مشهد",
-    },
-    {
-      id: 10,
-      img: "./image/book.jpg",
-      title: "کتاب متنی 10",
-      des: "سرویس ویرایش و بازخوانی متون فارسی شبکه مترجمین ایران متن‌تان را روان و خوانش‌پذیر می‌کند و خواننده را تا انتها همراه‌تان نگه می‌دارد.",
-      writer: "نویسنده هستم",
-      publisher: "کتابخانه مرکزی",
-      Translator: "مترجم هستم",
-      dataPublish: 20,
-      PublishAddress: "لرستان",
-    },
-  ];
-  displayTextBook(adabiatTextArray, textBookContainer, rowsCount, currentPage);
-  setUpPagination(adabiatTextArray, paginationContainer, rowsCount)
+async function adabiatTextApi() {
+  let res = "";
+  let adabiatTextArray = "";
+  try {
+    res = await fetch("data/adabiatText.json");
+    if (res.ok) {
+      adabiatTextArray = await res.json();
+      console.log(adabiatTextArray);
+      displayTextBook(adabiatTextArray,textBookContainer,rowsCount,currentPage
+      );
+      setUpPagination(adabiatTextArray, paginationContainer, rowsCount);
+    }
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 function cardGenerator(textBookArray) {
@@ -136,7 +36,7 @@ function cardGenerator(textBookArray) {
             <div class="botn">
               <a href="./openBook.html?title=${
                 textBookArray.title
-              }" class="btn btn-sm btn-primary border-0 float-end btnBxBook">مشاهده</a>
+              }" class="btn btn-sm btn-success border-0 float-end btnBxBook">مشاهده</a>
             </div>
           </div>
         </div>
@@ -178,7 +78,7 @@ function buttonGenerator(page, textBookArray) {
   button.addEventListener("click", () => {
     currentPage = page;
     window.scrollTo({ top: 0, behavior: "smooth" });
-    displayTextBook(textBookArray,textBookContainer,rowsCount,currentPage);
+    displayTextBook(textBookArray, textBookContainer, rowsCount, currentPage);
 
     let prevPage = document.querySelector("button.active");
     prevPage.classList.remove("active");
