@@ -74,9 +74,9 @@ a {
     height: 25rem;
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:768px) {
     .carousel-item-slider img {
-        height: 20rem;
+        height: 18rem;
     }
 }
 

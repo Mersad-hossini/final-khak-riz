@@ -66,6 +66,11 @@ a {
     margin-top: 20px;
 }
 
+.card-title {
+    font-size: 19px;
+    font-weight: bold;
+}
+
 /* Progress card sound */
 
 .progress-container {
@@ -139,4 +144,8 @@ a {
 .download-podcast:hover {
     background-color: rgb(173, 129, 32);
     color: #000;
+}
+
+.preLoad {
+    background-image: url("/image/placeholder.png");
 }

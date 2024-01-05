@@ -8,12 +8,11 @@ async function yadmanApi() {
   let res = "";
   let yadmanDatas = "";
   try {
-    res = await fetch("data/yadman.json");
+    res = await fetch("https://server.khakrizedarya.ir/martyr/YademanApi/?format=json");
     if (res.ok) {
       yadmanDatas = await res.json();
-      console.log(yadmanDatas);
-      setUpPagination(yadmanDatas, paginationContainer, rowsCount);
-      displayYadman(yadmanDatas, yadmanRow, rowsCount, currentPage);
+      setUpPagination(yadmanDatas["martyrApi"], paginationContainer, rowsCount);
+      displayYadman(yadmanDatas["martyrApi"], yadmanRow, rowsCount, currentPage);
     }
   } catch (err) {
     console.log(err);
@@ -21,19 +20,20 @@ async function yadmanApi() {
 }
 
 function cardGenerator(yadmanData) {
+  console.log(yadmanData);
   let card = `
       <div class="col-12 col-sm-9 col-md-6 col-lg-4 my-3 mx-auto">
         <div class="card card-box-imgs h-100 text-center">
           <a href="./yadman-mini.html?name=${yadmanData.name}">
             <img
-              src="${yadmanData.img}"
-              class="card-img-top podcast-img card-box-imgs open-modal"
+              src="${yadmanData.image}" loading="lazy"
+              class="card-img-top"
               alt="..."
             />
           </a>
           <div class="card-body">
             <h5 class="fw-bold card-title">${yadmanData.name}</h5>
-            <p class="mt-2 card-text">${yadmanData.des.substring(1, 30)}</p>
+            <p class="mt-2 card-text">${yadmanData.name.substring(1, 30)}</p>
             <a
               href="./yadman-mini.html?name=${yadmanData.name}"
               class="btn btn-success float-end w-100"
@@ -88,4 +88,4 @@ function buttonGenerator(page, yadman) {
   return button;
 }
 
-yadmanApi();
+window.addEventListener("load" , yadmanApi)

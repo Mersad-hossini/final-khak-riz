@@ -38,14 +38,14 @@ async function clipApi() {
   let res = "";
   let majaziClipArray = "";
   try {
-    res = await fetch("data/majaziClip.json");
+    res = await fetch("https://server.khakrizedarya.ir/cyberspace/VideoClipApi/?format=json");
     if (res.ok) {
       majaziClipArray = await res.json();
     }
   } catch (err) {
     console.log(err);
   }
-  return majaziClipArray;
+  return majaziClipArray["VideoClipApi"];
 }
 
 async function motionApi() {
@@ -64,9 +64,9 @@ async function motionApi() {
 
 function cardGenerator(clipObj) {
   // Check if individual properties are undefined and provide default values
-  let title = clipObj.title || "-";
-  let img = clipObj.img || "./default-image.jpg";
-  let clip = clipObj.clip || "./default-video.mp4";
+  let title = clipObj.title || "—";
+  let img = clipObj.image || c;
+  let clip = clipObj.clip || "./image/placeholder.png";
   let designer = clipObj.designer || "—";
   let editing = clipObj.editing || "—";
   let director = clipObj.director || "—";

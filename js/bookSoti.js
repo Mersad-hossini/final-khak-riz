@@ -7,12 +7,11 @@ async function adabiatSotiApi() {
   let res = "";
   let adabiatSotiArray = "";
   try {
-    res = await fetch("data/adabiatSoti.json");
+    res = await fetch("https://server.khakrizedarya.ir/literature-history/LHBookAudioApi/?format=json");
     if (res.ok) {
       adabiatSotiArray = await res.json();
-      console.log(adabiatSotiArray);
-      displayBookSoti(adabiatSotiArray, sotiContainer, rowsCount, currentPage);
-      setUpPagination(adabiatSotiArray, paginationContainer, rowsCount);
+      displayBookSoti(adabiatSotiArray["AudioBookAPI"], sotiContainer, rowsCount, currentPage);
+      setUpPagination(adabiatSotiArray["AudioBookAPI"], paginationContainer, rowsCount);
     }
   } catch (err) {
     console.log(err);
@@ -24,19 +23,12 @@ function cardGenerator(sotiArray) {
         <div class="col col-sm-6 col-md-4 col-lg-3 justify-content-center d-flex">
         <div class="card h-100" style="width: 16rem;">
           <a href="./openBookSoti.html?title=${sotiArray.title}">
-            <img src="${
-              sotiArray.img
-            }" class="card-img-top img-fluid" alt="image book">
+            <img src="${sotiArray.image}" class="card-img-top img-fluid" alt="image book">
           </a>
           <div class="card-body pb-0">
             <h5 class="text-start">${sotiArray.title}</h5>
-            <p class="card-text text-start">${sotiArray.des.substring(
-              0,
-              30
-            )}...</p>
-            <a href="./openBookSoti.html?title=${
-              sotiArray.title
-            }" class="btn btn-sm btn-success border-0 float-end btnBxBook mb-3">مشاهده</a>
+            <p class="card-text text-start">${sotiArray.description.substring(0,30)}...</p>
+            <a href="./openBookSoti.html?title=${sotiArray.title}" class="btn btn-sm btn-success border-0 float-end btnBxBook mb-3">مشاهده</a>
           </div>
         </div>
       </div>

@@ -18,17 +18,15 @@ async function clipApi() {
   let res = "";
   let majaziClipArray = "";
   try {
-    res = await fetch("data/majaziClip.json");
+    res = await fetch("https://server.khakrizedarya.ir/cyberspace/VideoClipApi/?format=json");
     if (res.ok) {
       majaziClipArray = await res.json();
-      console.log(majaziClipArray);
-      displayClipCard(majaziClipArray,clipContainer,rowsCount,currentPage)
-      setUpPagination(majaziClipArray, paginationContainer, rowsCount)
+      displayClipCard(majaziClipArray["VideoClipApi"],clipContainer,rowsCount,currentPage)
+      setUpPagination(majaziClipArray["VideoClipApi"], paginationContainer, rowsCount)
     }
   } catch (err) {
     console.log(err);
   }
-
 }
 
 async function motionApi() {

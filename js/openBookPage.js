@@ -7,13 +7,11 @@ async function adabiatTextApi() {
   let res = "";
   let adabiatTextArray = "";
   try {
-    res = await fetch("data/adabiatText.json");
+    res = await fetch("https://server.khakrizedarya.ir/literature-history/LHBookApi/?format=json");
     if (res.ok) {
       adabiatTextArray = await res.json();
-      console.log(adabiatTextArray);
-      displayTextBook(adabiatTextArray,textBookContainer,rowsCount,currentPage
-      );
-      setUpPagination(adabiatTextArray, paginationContainer, rowsCount);
+      displayTextBook(adabiatTextArray["bookApi"],textBookContainer,rowsCount,currentPage);
+      setUpPagination(adabiatTextArray["bookApi"], paginationContainer, rowsCount);
     }
   } catch (err) {
     console.log(err);
@@ -23,16 +21,13 @@ async function adabiatTextApi() {
 function cardGenerator(textBookArray) {
   let card = `
       <div class="col-lg-3 col col-md-4 col-sm-6 justify-content-center d-flex">
-        <div class="card mb-5 h100" style="width: 16rem;">
+        <div class="card h-100" style="width: 16rem;">
           <a href="./openBook.html?title=${textBookArray.title}">
-            <img src="${textBookArray.img}" class="card-img-top" alt="...">
+            <img src="${textBookArray.image}" class="card-img-top" alt="...">
           </a>
           <div class="card-body">
-            <h4 class="text-start">${textBookArray.title}</h4>
-            <p class="card-text text-start">${textBookArray.des.substring(
-              0,
-              30
-            )}...</p>
+            <h5 class="text-start card-title">${textBookArray.title}</h5>
+            <p class="card-text text-start">${textBookArray.description.substring(0,60)}...</p>
             <div class="botn">
               <a href="./openBook.html?title=${
                 textBookArray.title

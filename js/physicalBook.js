@@ -7,12 +7,11 @@ async function physicalBookApi() {
   let res = "";
   let physicalBookArray = "";
   try {
-    res = await fetch("data/physicalBook.json");
+    res = await fetch("https://server.khakrizedarya.ir/library/physicalbookApi/?format=json");
     if (res.ok) {
       physicalBookArray = await res.json();
-      console.log(physicalBookArray);
-      displayPhysicalBook(physicalBookArray,physicalBookContainer, rowsCount,currentPage);
-      setUpPagination(physicalBookArray, paginationContainer, rowsCount)
+      displayPhysicalBook(physicalBookArray['GraphicDesignApi'],physicalBookContainer, rowsCount,currentPage);
+      setUpPagination(physicalBookArray['GraphicDesignApi'], paginationContainer, rowsCount)
     }
   } catch (err) {
     console.log(err);
@@ -27,13 +26,13 @@ function cardGenerator(BookArray) {
         <div class="card h-100" style="width: 16rem">
             <a href="./physicalBookPage.html?title=${BookArray.title}"
             ><img
-                src="${BookArray.img}"
+                src="${BookArray.image}"
                 class="card-img-top img-fluid"
                 alt="image book pdf"
             /></a>
             <div class="card-body">
             <h5 class="card-title fw-bolder">${BookArray.title}</h5>
-            <p class="card-text">${BookArray.des.substring(0,30)}...</p>
+            <p class="card-text">${BookArray.description.substring(0,30)}...</p>
             <a
                 href="./physicalBookPage.html?title=${BookArray.title}"
                 class="btn btn-success float-end w-100"
