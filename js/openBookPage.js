@@ -23,7 +23,7 @@ function cardGenerator(textBookArray) {
       <div class="col-lg-3 col col-md-4 col-sm-6 justify-content-center d-flex">
         <div class="card h-100" style="width: 16rem;">
           <a href="./openBook.html?title=${textBookArray.title}">
-            <img src="${textBookArray.image}" class="card-img-top" alt="...">
+            <img src="https://server.khakrizedarya.ir${textBookArray.image}" class="card-img-top image" alt="...">
           </a>
           <div class="card-body">
             <h5 class="text-start card-title">${textBookArray.title}</h5>

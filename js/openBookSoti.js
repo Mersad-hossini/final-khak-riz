@@ -35,44 +35,54 @@ function getUrl(sotiArray) {
   if (!mainSoti) {
     window.location.href = "index.html";
   } else {
-    cardGenerator(mainSoti);
   }
+  cardGenerator(mainSoti);
 }
 
 function cardGenerator(sotiObj) {
+  let title = sotiObj.title || "—" 
+  let image = sotiObj.image || "./image/placeholder.png" 
+  let author = sotiObj.author || "—" 
+  let publisher = sotiObj.publisher || "—" 
+  let Translator = sotiObj.Translator || "—" 
+  let dataPublish = sotiObj.dataPublish || "—" 
+  let PublishAddress = sotiObj.PublishAddress || "—" 
+  let description = sotiObj.description || "—" 
+  let audioLink = sotiObj.audio_file || "—"
+
   let cardImg = `
-    <h3>معرفی  ${sotiObj.title}</h3>
+    <h3>${title}</h3>
     <hr>
-    <img src="${sotiObj.image}" class="img-fluid d-block mt-3 float-start rounded-1 " style="width: 100%;"/>   
+    <img src="https://server.khakrizedarya.ir${image}" class="img-fluid d-block mt-3 float-start rounded-1 right-img"/>   
     `;
 
   let cardDetails = `
     <hr>
     <h5>نویسنده:
-      <p class="d-inline-block">${sotiObj.author}</p>
+      <p class="d-inline-block">${author}</p>
     </h5>
     <h5>ناشر:
-      <p class="d-inline-block mt-2">${sotiObj.publisher}</p>
+      <p class="d-inline-block mt-2">${publisher}</p>
     </h5>
     <h5>مترجم:
-      <p class="d-inline-block mt-2">${sotiObj.Translator}</p>
+      <p class="d-inline-block mt-2">${Translator}</p>
     </h5>
     <h5>تاریخ نشر:
-      <p class="d-inline-block mt-2">${sotiObj.dataPublish}</p>
+      <p class="d-inline-block mt-2">${dataPublish}</p>
     </h5>
     <h5>محل نشر:
-      <p class="d-inline-block mt-2">${sotiObj.PublishAddress}</p>
+      <p class="d-inline-block mt-2">${PublishAddress}</p>
     </h5>
     `;
 
   let cardDescription = `
     <hr class="mt-4 ">
-    <h3> معرفی و توضیحات ${sotiObj.title}</h3>
-    <p>${sotiObj.description}</p>
+    <h3>${title}</h3>
+    <p>${description}</p>
     `;
 
-  music.setAttribute("src", sotiObj.audio_file);
-  downloadSoundBtn.setAttribute("href", sotiObj.audio_file);
+  music.setAttribute("src", `https://server.khakrizedarya.ir${audioLink}`);
+  downloadSoundBtn.setAttribute("href", `https://server.khakrizedarya.ir${audioLink}`);
   imgContainer.insertAdjacentHTML("beforeend", cardImg);
   sotiDetails.insertAdjacentHTML("beforeend", cardDetails);
   sotiDescription.insertAdjacentHTML("beforeend", cardDescription);
@@ -110,12 +120,16 @@ function updateProgressBar(e) {
 }
 
 function setProgressBar(e) {
-  let width = this.clientWidth;
-  let clickX = e.offsetX;
+  let width = progressContainer.clientWidth;
+  let clickX = e.clientX - progressContainer.getBoundingClientRect().left;
+
   let duration = music.duration;
-  music.currentTime = (clickX / width) * duration;
-  playSong();
+  let newTime = (clickX / width) * duration;
+
+  music.currentTime = newTime;
+  playSong(); // اگر موزیک در حال پخش نیست، آن را پخش کنید
 }
+
 
 playBtn.addEventListener("click", changeState);
 music.addEventListener("timeupdate", updateProgressBar);

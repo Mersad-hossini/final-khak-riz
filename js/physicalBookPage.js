@@ -33,33 +33,41 @@ function getUrl(BookArray) {
 }
 
 function cardGenerator(bookObj) {
+    let title = bookObj.title || "—"
+    let image = bookObj.image || "./image/placeholder.png"
+    let author = bookObj.author || "—"
+    let publisher = bookObj.publisher || "—"
+    let publication_date = bookObj.publication_date || "—"
+    let publication_place= bookObj.publication_place || "—"
+    let description= bookObj.description || "—"
+
     let cardImg = `
-        <h3 class="text-center">معرفی ${bookObj.title}</h4>
+        <h3 class="text-center">معرفی ${title}</h4>
         <hr />
         <div class="bgImgBook p-4">
-        <img src="${bookObj.image}" class="img-fluid d-block float-start rounded-1"/>
+        <img src="https://server.khakrizedarya.ir${image}" class="img-fluid d-block float-start rounded-1"/>
     `;
 
     let cardDetails = `
       <hr>
       <h5>نویسنده:
-        <p class="d-inline-block">${bookObj.author}</p>
+        <p class="d-inline-block">${author}</p>
       </h5>
       <h5>ناشر:
-        <p class="d-inline-block mt-2">${bookObj.publisher}</p>
+        <p class="d-inline-block mt-2">${publisher}</p>
       </h5>
       <h5>تاریخ نشر:
-        <p class="d-inline-block mt-2">${bookObj.publication_date}</p>
+        <p class="d-inline-block mt-2">${publication_date}</p>
       </h5>
       <h5>محل نشر:
-        <p class="d-inline-block mt-2">${bookObj.publication_place}</p>
+        <p class="d-inline-block mt-2">${publication_place}</p>
       </h5>
     `;
 
     let cardDescription = `
       <hr class="mt-2 ">
-      <h3> معرفی و توضیحات ${bookObj.title}</h3>
-      <p>${bookObj.description}</p>
+      <h3> معرفی و توضیحات ${title}</h3>
+      <p>${description}</p>
     `;
 
   imageContainer.insertAdjacentHTML("beforeend", cardImg);

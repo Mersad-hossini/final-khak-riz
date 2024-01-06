@@ -18,6 +18,23 @@ async function yadmanApi() {
   }
 }
 
+async function yadmanSubsetApi() {
+  let res = "";
+  let subsetDatas = "";
+  try {
+    res = await fetch("https://server.khakrizedarya.ir/martyr/YademanShohadaApi/?format=json");
+    if (res.ok) {
+      subsetDatas = await res.json();
+      console.log(subsetDatas["YademanShohadaAPI"]);
+      // showInfo(subsetDatas["YademanShohadaAPI"]);
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+yadmanSubsetApi()
+
 function showInfo(yadmanData) {
   let mainYadman = yadmanData.find((yadman) => {
     return yadman.name === getLocation;
@@ -32,19 +49,25 @@ function showInfo(yadmanData) {
 }
 
 function generateSection(mainYadman, yadmanData) {
+  let name = mainYadman.name || "—"
+  let image = mainYadman.image || "./image/placeholder.png"
+  let yadmnaPlace = mainYadman.place_of_martyrdom || "—"
+  let address = mainYadman.address || "—"
+  let data = mainYadman.construction_date || "—"
+  console.log(image);
   if (getLocation > yadmanData.length) {
     location.href = "./index.html";
   } else {
     containerInfo.insertAdjacentHTML(
       "beforeend",
       `<div class="card p-0 p-md-5">
-      <img height="400px" src="${mainYadman.image} class="card-img-top img-fluid"
+      <img height="250px" src="https://server.khakrizedarya.ir${image}" class="card-img-top img-fluid"
         alt="...">
       <div class="card-body">
-        <h3 class="card-title">نام یادمان: ${mainYadman.name}</h3>
-        <p class="card-text"><h3 class="d-inline-block card-title">توضیحات:</h3> ${mainYadman.place_of_martyrdom}/p>
-        <h5 class="card-text">نشانی یادمان: ${mainYadman.address}</h5>
-        <h5 class="card-text">تاریخ احداث یادمان: ${mainYadman.construction_date}</h5>
+        <h3 class="card-title">نام یادمان: ${name}</h3>
+        <p class="card-text"><h3 class="d-inline-block card-title">توضیحات:</h3> ${yadmnaPlace}</p>
+        <h5 class="card-text">نشانی یادمان: ${address}</h5>
+        <h5 class="card-text">تاریخ احداث یادمان: ${data}</h5>
       </div>
     </div>`
     );

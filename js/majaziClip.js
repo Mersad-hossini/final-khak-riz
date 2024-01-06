@@ -33,12 +33,11 @@ async function motionApi() {
   let res = "";
   let majaziMotinArray = "";
   try {
-    res = await fetch("data/majaziMotion.json");
+    res = await fetch("https://server.khakrizedarya.ir/cyberspace/MotionGraphiApi/?format=json");
     if (res.ok) {
       majaziMotinArray = await res.json();
-      console.log(majaziMotinArray);
-      displayClipCard(majaziMotinArray,clipContainer,rowsCount,currentPage)
-      setUpPagination(majaziMotinArray, paginationContainer, rowsCount)
+      displayClipCard(majaziMotinArray["MotionGraphiApi"],clipContainer,rowsCount,currentPage)
+      setUpPagination(majaziMotinArray["MotionGraphiApi"], paginationContainer, rowsCount)
     }
   } catch (err) {
     console.log(err);
@@ -46,10 +45,11 @@ async function motionApi() {
 }
 
 function cardGenerator(clipArray) {
+  console.log(clipArray.thumbnail);
     let card = `
     <div class="col-lg-3 col col-md-4 col-sm-6 d-flex justify-content-center">
     <div class="card h-100" style="width: 16rem">
-      <a href="./majaziClipPage.html?title=${clipArray.title}"><img src="${clipArray.img}" class="card-img-top img-fluid" alt="image book pdf"/></a>
+      <a href="./majaziClipPage.html?title=${clipArray.title}"><img src="https://server.khakrizedarya.ir${clipArray.thumbnail}" class="card-img-top img-fluid" alt="image book pdf"/></a>
       <div class="card-body">
         <h5 class="card-title fw-bolder">${clipArray.title}</h5>
         <p class="card-text">${clipArray.editing}...</p>

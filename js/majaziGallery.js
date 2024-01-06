@@ -7,12 +7,11 @@ async function majaziGrapicApi() {
   let res = "";
   let majaziGrapicArray = "";
   try {
-    res = await fetch("data/majaziGrapic.json");
+    res = await fetch("https://server.khakrizedarya.ir/cyberspace/GraphicDesignApi/?format=json");
     if (res.ok) {
       majaziGrapicArray = await res.json();
-      console.log(majaziGrapicArray);
-      displayGrapicImg(majaziGrapicArray, majaziContaienr, rowsCount, currentPage);
-      setUpPagination(majaziGrapicArray, paginationContainer, rowsCount);
+      displayGrapicImg(majaziGrapicArray["GraphicDesignApi"], majaziContaienr, rowsCount, currentPage);
+      setUpPagination(majaziGrapicArray["GraphicDesignApi"], paginationContainer, rowsCount);
     }
   } catch (err) {
     console.log(err);
@@ -23,10 +22,10 @@ function cardGenerator(majaziArray) {
   let card = `
     <div class="col-lg-3 col col-md-4 col-sm-6 d-flex justify-content-center">
         <div class="card h-100" style="width: 16rem">
-            <a href="./majaziGalleryPage.html?title=${majaziArray.title}"><img src="${majaziArray.img}" class="card-img-top img-fluid" alt="image book pdf"/></a>
+            <a href="./majaziGalleryPage.html?title=${majaziArray.title}"><img src="https://server.khakrizedarya.ir${majaziArray.image}" class="card-img-top img-fluid" alt="image book pdf"/></a>
             <div class="card-body">
                 <h5 class="card-title fw-bolder">${majaziArray.title}</h5>
-                <p class="card-text">${majaziArray.des.substring(0,30)}...</p>
+                <p class="card-text">${majaziArray.designer.substring(0,30)}...</p>
                 <a href="./majaziGalleryPage.html?title=${majaziArray.title}" class="btn btn-success float-end w-100">مشاهده</a>
             </div>
         </div>

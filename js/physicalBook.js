@@ -26,7 +26,7 @@ function cardGenerator(BookArray) {
         <div class="card h-100" style="width: 16rem">
             <a href="./physicalBookPage.html?title=${BookArray.title}"
             ><img
-                src="${BookArray.image}"
+                src="https://server.khakrizedarya.ir${BookArray.image}"
                 class="card-img-top img-fluid"
                 alt="image book pdf"
             /></a>

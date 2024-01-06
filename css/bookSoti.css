@@ -47,6 +47,11 @@ a {
     bottom: 2px;
 }
 
+.card-img, .card-img-bottom, .card-img-top {
+    width: 255px;
+    height: 255px;
+}
+
 /* دکمه بعدی و قبلی  */
 
 .pagination {

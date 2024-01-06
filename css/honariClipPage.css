@@ -139,3 +139,10 @@ a {
     position: relative;
     right: -16px;
 }
+
+.video-size {
+    height: 300px;
+    width: 177vh; /* 100 * 16 / 9 */
+    min-width: 100%;
+    min-height: 20vw; /* 100 * 9 / 16 */
+}

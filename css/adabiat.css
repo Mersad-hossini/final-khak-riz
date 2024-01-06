@@ -71,6 +71,11 @@ a {
     font-weight: bold;
 }
 
+.card-img, .card-img-bottom, .card-img-top {
+    width: 255px;
+    height: 255px;
+}
+
 /* Progress card sound */
 
 .progress-container {

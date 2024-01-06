@@ -52,31 +52,31 @@ async function motionApi() {
   let res = "";
   let majaziMotinArray = "";
   try {
-    res = await fetch("data/majaziMotion.json");
+    res = await fetch("https://server.khakrizedarya.ir/cyberspace/MotionGraphiApi/?format=json");
     if (res.ok) {
       majaziMotinArray = await res.json();
     }
   } catch (err) {
     console.log(err);
   }
-  return majaziMotinArray
+  return majaziMotinArray["MotionGraphiApi"]
 }
 
 function cardGenerator(clipObj) {
   // Check if individual properties are undefined and provide default values
   let title = clipObj.title || "—";
-  let img = clipObj.image || c;
+  let img = clipObj.thumbnail || "./image/placeholder.png";
   let clip = clipObj.clip || "./image/placeholder.png";
   let designer = clipObj.designer || "—";
   let editing = clipObj.editing || "—";
   let director = clipObj.director || "—";
 
   let cardVideo = `
-        <h4> معرفی ${title}</h4>
+        <h4>${title}</h4>
         <hr>
         <div class="card-body p-0 m-0">
-            <video poster="${img}" class="img-fluid" controls>
-                <source src="${clip}">
+            <video poster="https://server.khakrizedarya.ir${img}" class="img-fluid video-size" controls>
+                <source src="https://server.khakrizedarya.ir${clip}">
             </video>
         </div>
         `;
@@ -97,7 +97,7 @@ function cardGenerator(clipObj) {
         <p></p>
         `;
 
-  downloadBtn.setAttribute("href", clip);
+  downloadBtn.setAttribute("href", `https://server.khakrizedarya.ir${clip}`);
   videoContainer.insertAdjacentHTML("beforeend", cardVideo);
   infoContainer.insertAdjacentHTML("beforeend", cardInfo);
   clipDescription.insertAdjacentHTML("beforeend", descriptionCard);

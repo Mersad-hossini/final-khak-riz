@@ -42,6 +42,11 @@ a {
     font-weight: 600;
 }
 
+.card-img, .card-img-top {
+    width: 75%;
+    height: 250px;
+}
+
 /* دکمه بعدی و قبلی  */
 
 .pagination {

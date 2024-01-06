@@ -23,7 +23,7 @@ function cardGenerator(sotiArray) {
         <div class="col col-sm-6 col-md-4 col-lg-3 justify-content-center d-flex">
         <div class="card h-100" style="width: 16rem;">
           <a href="./openBookSoti.html?title=${sotiArray.title}">
-            <img src="${sotiArray.image}" class="card-img-top img-fluid" alt="image book">
+            <img src="https://server.khakrizedarya.ir${sotiArray.image}" class="card-img-top img-fluid" alt="image book">
           </a>
           <div class="card-body pb-0">
             <h5 class="text-start">${sotiArray.title}</h5>

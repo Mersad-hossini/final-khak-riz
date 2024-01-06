@@ -10,132 +10,134 @@
     <link rel="stylesheet" href="./css/openBook.css" />
     <link rel="stylesheet" href="./css/navbar.css" />
     <link rel="stylesheet" href="./css/footer.css" />
-    <title>majazi gallery page</title>
+
+    <link rel="icon" type="image/x-icon" href="./image/Hefze Asar Logo Vector.png">
+    <title>طراحی گرافیکی</title>
 </head>
 
 <body>
-    <header>
-        <nav
-          class="top-bar"
-          style="background-image: url('./image/02.png')"
-        ></nav>
-    
-        <nav
-          class="navbar sticky-top navbar-dark seconde-bar navbar-expand-lg bg-gradient"
+  <header>
+    <nav
+      class="top-bar"
+      style="background-image: url('./image/topheader.png')"
+    ></nav>
+
+    <nav
+      class="navbar sticky-top navbar-dark seconde-bar navbar-expand-lg bg-gradient"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand me-auto d-lg-none img-fluid" href="#"
+          ><img
+            id="nav-logo-smallScreen"
+            src="./image/Hefze Asar Logo Vector.png"
+            alt="logo"
+            width="55"
+            height="55"
+        /></a>
+        <button
+          class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          <div class="container-fluid">
-            <a class="navbar-brand me-auto d-lg-none img-fluid" href="#"
-              ><img
-                id="nav-logo-smallScreen"
-                src="./image/Hefze Asar Logo Vector.png"
-                alt="logo"
-                width="55"
-                height="55"
-            /></a>
-            <button
-              class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="toggler-icon top-bar"></span>
-              <span class="toggler-icon middle-bar"></span>
-              <span class="toggler-icon bottom-bar"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="./index.html">
-                    خانه
-                  </a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    معاونت ها
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a class="dropdown-item" href="./adabiat.html"
-                        >ادبیات و تاریخ</a
-                      >
-                    </li>
-                    <li><hr class="dropdown-divider d-none d-lg-flex" /></li>
-                    <li><a class="dropdown-item" href="./index.html">امور مهندسی</a></li>
-                    <li><hr class="dropdown-divider d-none d-lg-flex" /></li>
-                    <li>
-                      <a class="dropdown-item" href="./yadman.html"
-                        >یادمان شهدای گمنام</a
-                      >
-                    </li>
-                    <li><hr class="dropdown-divider d-none d-lg-flex" /></li>
-                    <li>
-                      <a class="dropdown-item" href="./majazi.html">فضای مجازی</a>
-                    </li>
-                    <li><hr class="dropdown-divider d-none d-lg-flex" /></li>
-                    <li>
-                      <a class="dropdown-item" href="./index.html">کتابخانه</a>
-                    </li>
-                    <li><hr class="dropdown-divider d-none d-lg-flex" /></li>
-                    <li>
-                      <a class="dropdown-item" href="./honari.html"
-                        >هنری و امور سینمایی</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link mx-lg-2" aria-current="page" href="./darbareMa.html">
-                    درباره ما
-                  </a>
-                </li>
-              </ul>
+          <span class="toggler-icon top-bar"></span>
+          <span class="toggler-icon middle-bar"></span>
+          <span class="toggler-icon bottom-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="./index.html">
+                خانه
+              </a>
+            </li>
+            <li class="nav-item dropdown">
               <a
-                class="navbar-brand d-none d-lg-flex ms-auto img-fluid"
-                href="./index.html"
-                ><img
-                  id="nav-logo-bigScreen"
-                  src="./image/Hefze Asar Logo Vector.png"
-                  alt="logo"
-                  width="55"
-                  height="55"
-              /></a>
-              <form
-                action="#"
-                method="get"
-                class="d-flex justify-content-center ms-lg-auto"
-                id="form-search"
-                role="search"
-                autocomplete="off"
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
               >
-                <div class="group">
-                  <img
-                    src="./image/Magnifierpng.png"
-                    class="icon"
-                    id="search-btn"
-                    alt="Magnifierpng-logo"
-                  />
-                  <input
-                    type="text"
-                    class="input"
-                    name="search"
-                    id="input-search"
-                    placeholder="جوینده یابنده است..."
-                  />
-                </div>
-              </form>
+                معاونت ها
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="./adabiat.html"
+                    >ادبیات و تاریخ</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider d-none d-lg-flex" /></li>
+                <li>
+                  <a class="dropdown-item" href="./honari.html"
+                    >هنری و امور سینمایی</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider d-none d-lg-flex" /></li>
+                <li>
+                  <a class="dropdown-item" href="./yadman.html"
+                    >یادمان شهدای گمنام</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider d-none d-lg-flex" /></li>
+                <li>
+                  <a class="dropdown-item" href="./majazi.html">فضای مجازی</a>
+                </li>
+                <li><hr class="dropdown-divider d-none d-lg-flex" /></li>
+                <li>
+                  <a class="dropdown-item" href="./physicalBook.html">کتابخانه</a>
+                </li>
+                <li><hr class="dropdown-divider d-none d-lg-flex" /></li>
+                <li><a class="dropdown-item">امور مهندسی</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" aria-current="page" href="./darbareMa.html">
+                درباره ما
+              </a>
+            </li>
+          </ul>
+          <a
+            class="navbar-brand d-none d-lg-flex ms-auto img-fluid"
+            href="./index.html"
+            ><img
+              id="nav-logo-bigScreen"
+              src="./image/Hefze Asar Logo Vector.png"
+              alt="logo"
+              width="55"
+              height="55"
+          /></a>
+          <form
+            action="#"
+            method="get"
+            class="d-flex justify-content-center ms-lg-auto"
+            id="form-search"
+            role="search"
+            autocomplete="off"
+          >
+            <div class="group">
+              <img
+                src="./image/Magnifierpng.png"
+                class="icon"
+                id="search-btn"
+                alt="Magnifierpng-logo"
+              />
+              <input
+                type="text"
+                class="input"
+                name="search"
+                id="input-search"
+                placeholder="جوینده یابنده است..."
+              />
             </div>
-          </div>
-        </nav>
-      </header>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
     <!-- start project -->
     <div class="container mt-3">
         <div class="row align-items-center">
@@ -144,12 +146,11 @@
                 <div class="card p-3 align-content-center mt-md-5">
                     <div class="header-img text-center">برای دانلود عکس مورد نظر دکمه زیر را فشار دهید</div>
                     <hr>
-                    <a href="" download  class="btn btn-danger mb-3 download">دانلود عکس  </a>
+                    <a href="" download="" class="btn btn-danger mb-3 download">دانلود عکس</a>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="container ">
         <div class="row">
             <div class="col info-container"></div>
@@ -165,8 +166,8 @@
 
     <footer class="pt-5 mt-4 bg-dark text-white bg-gradient">
       <div class="container text-center">
-        <div class="row gy-4">
-          <div class="col-md-2 mt-0 mt-md-5 mt-lg-0">
+        <div class="row gy-4 align-items-center">
+          <div class="col-md-2 mt-0 mt-md-3 mt-lg-0">
             <h4 class="fw-bold mb-3 text-warning"> خاکریز دریا</h4>
 
 
@@ -174,37 +175,36 @@
               <img
                 src="./image/Hefze Asar Logo Vector.png"
                 alt="website-logo"
-                width="130"
-                height="130"
-                class="img-fluid"
+                width="120px"
+                height="120px"
               />
             </a>
           </div>
 
-          <div class="col-md-4 mt-3">
+          <div class="col-md-4 mt-3 mb-md-5 m-0">
             <h4 class="fw-bold mb-3 text-warning">پیوند ها</h4>
-            <a href="https://defapress.ir/ ">
+            <a href="https://defapress.ir/" target="_blank">
               <img
                 src="./image/defaperes.png"
-                width="100px"
-                height="100px"
+                width="90px"
+                height="90px"
                 alt="website-logo"
                 class="rounded-circle img-fluid mb-3 me-2"
               />
             </a>
            
-            <a href="https://defapress.ir/ ">
+            <a href="https://defapress.ir/" target="_blank">
               <img
                 src="./image/defaperes.png"
-                width="100px"
-                height="100px"
+                width="90px"
+                height="90px"
                 alt="website-logo"
                 class="rounded-circle img-fluid mb-3 me-2"
               />
             </a>
           </div>
 
-          <div class="col-md-3 mt-3">
+          <div class="col-md-3 m-0">
             <h4 class="fw-bold mb-3 text-warning">ارتباط با ما</h4>
             <ul class="list-unstyled">
               <li class="contact-us-map">
@@ -219,7 +219,7 @@
             </ul>
           </div>
 
-          <div class="col-md-3 mt-3">
+          <div class="col-md-3 mt-0">
             <h4 class="fw-bold mb-3 text-warning">فضای مجازی</h4>
             <div class="row">
               <div class="col-12">
@@ -276,6 +276,9 @@
                 <p>طراحی و توسعه توسط ...</p>
               </div>
             </div>
+
+
+            
           </div>
         </div>
       </div>

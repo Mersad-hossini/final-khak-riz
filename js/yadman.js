@@ -20,20 +20,19 @@ async function yadmanApi() {
 }
 
 function cardGenerator(yadmanData) {
-  console.log(yadmanData);
   let card = `
       <div class="col-12 col-sm-9 col-md-6 col-lg-4 my-3 mx-auto">
         <div class="card card-box-imgs h-100 text-center">
           <a href="./yadman-mini.html?name=${yadmanData.name}">
             <img
-              src="${yadmanData.image}" loading="lazy"
+              src="https://server.khakrizedarya.ir${yadmanData.image}" loading="lazy"
               class="card-img-top"
               alt="..."
             />
           </a>
           <div class="card-body">
             <h5 class="fw-bold card-title">${yadmanData.name}</h5>
-            <p class="mt-2 card-text">${yadmanData.name.substring(1, 30)}</p>
+            <p class="mt-2 card-text">${yadmanData.city.substring(0, 30)}</p>
             <a
               href="./yadman-mini.html?name=${yadmanData.name}"
               class="btn btn-success float-end w-100"

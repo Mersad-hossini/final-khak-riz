@@ -1,4 +1,35 @@
 let owlContainer = document.querySelector(".owl-container");
+let carouselSliderHeader = document.getElementById("carousel-slider")
+
+async function headerSliderApi() {
+    try {
+        let res = await fetch("https://server.khakrizedarya.ir/home-object/sliderSiteApi/?format=json")
+        let sliderArray = ""
+        if(res.ok) {
+            sliderArray = await res.json()
+            sliderGenerator(sliderArray["SliderSiteAPI"])
+        } else {
+          throw Error
+        }
+    } catch(err) {
+      console.log(err);
+    }
+}
+
+function sliderGenerator(sliderImage) {
+    let card = ""
+    carouselSliderHeader.innerHTML = ""
+    sliderImage.forEach(slider => {
+        card += `
+        <div class="carousel-item carousel-item-slider active" data-bs-interval="3000">
+          <img src = https://server.khakrizedarya.ir${slider.image} id="image-slider1" class="d-block img-fluid" alt="..." />
+        </div>
+        `
+    });
+    carouselSliderHeader.insertAdjacentHTML("beforeend" , card)
+}
+
+window.addEventListener("load" , headerSliderApi)
 
 function adabiatSotiApi() {
   let adabiatSotiArray = [
@@ -125,29 +156,65 @@ function adabiatSotiApi() {
   ];
   sotiSeparator(adabiatSotiArray);
 }
-$(".owl-one").owlCarousel({
-  rtl: true,
-  loop: true,
-  margin: 10,
-  nav: false,
-  autoplay: false,
-  // autoplayTimeout: 3000,
-  stagePadding: 50,
-  responsive: {
-    0: {
-      items: 1,
-    },
-    600: {
-      items: 1,
-    },
-    768: {
-      items: 2,
-    },
-    992: {
-      items: 3,
-    },
-  },
-});
+// $(".owl-one").owlCarousel({
+//   rtl: true,
+//   loop: true,
+//   margin: 10,
+//   nav: false,
+//   autoplay: false,
+//   // autoplayTimeout: 3000,
+//   stagePadding: 50,
+//   responsive: {
+//     0: {
+//       items: 1,
+//     },
+//     600: {
+//       items: 1,
+//     },
+//     768: {
+//       items: 2,
+//     },
+//     992: {
+//       items: 3,
+//     },
+//   },
+// });
+
+$(document).ready(function () {
+    let apiUrl = "https://server.khakrizedarya.ir/literature-history/LHBookApi/?format=json"
+
+    $.get(apiUrl, function (data) {
+      data["bookApi"].forEach(function (item) {
+        $('#owl-carousel').append(`<div class="item"><img src="https://server.khakrizedarya.ir${item.image}" alt="${item.title}"></div>`);
+      });
+  
+      // Initialize the owl carousel
+      $('.owl-one').owlCarousel({
+        rtl: true,
+        loop: true,
+        margin: 10,
+        nav: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        stagePadding: 50,
+        responsive: {
+          0: {
+            items: 1,
+            nav: true
+          },
+          600: {
+            items: 3,
+            nav: false
+          },
+          1000: {
+            items: 5,
+            nav: true,
+            loop: false
+          }
+        }
+      });
+    });
+})
 
 $(".owl-two").owlCarousel({
   rtl: true,
@@ -196,42 +263,3 @@ $(".owl-three").owlCarousel({
     },
   },
 });
-
-// function sotiSeparator(sotiArray) {
-//   let newSotiArray = [];
-//   let randomIndex = "";
-//   let randomElement = "";
-
-//   while (newSotiArray.length < 6) {
-//     randomIndex = Math.floor(Math.random() * sotiArray.length);
-//     randomElement = sotiArray[randomIndex];
-
-//     if (!newSotiArray.includes(randomElement)) {
-//       newSotiArray.push(randomElement);
-//     }
-//   }
-
-//   cardSotiGenerator(newSotiArray);
-// }
-
-// function cardSotiGenerator(newSotiArray) {
-//   let card = "";
-
-//   newSotiArray.forEach((soti) => {
-//     card += `
-//       <div class="item">
-//         <div class="card text-center shadow">
-//           <img src="${soti.img}" alt="" />
-//           <div class="card-body">
-//             <h5 class="card-title">${soti.title}</h5>
-//             <p class="card-text">${soti.des}</p>
-//             <a href="index.html?title=${soti.title}" target="_blank" class="btn btn-sm btn-success border-0 w-100 slider-button">مشاهده</a>
-//           </div>
-//         </div>
-//       </div>`;
-//   });
-
-//   owlContainer.insertAdjacentHTML("beforeend", card);
-// }
-
-// window.addEventListener("load", adabiatSotiApi);
