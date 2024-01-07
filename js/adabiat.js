@@ -34,7 +34,7 @@ function sotiSeparator(sotiArray) {
   let randomIndex = "";
   let randomElement = "";
 
-  for (let i = 0; i < 4; i++) {
+  while (newSotiArray.length < 4) {
     randomIndex = Math.floor(Math.random() * sotiArray.length);
     randomElement = sotiArray[randomIndex];
 
@@ -42,7 +42,6 @@ function sotiSeparator(sotiArray) {
       newSotiArray.push(randomElement);
     }
   }
-
   cardSotiGenerator(newSotiArray);
 }
 
@@ -97,7 +96,7 @@ function cardTextGenerator(newtextBookArray) {
           </a>
           <div class="card-body">
             <h5 class="text-start card-title">${txt.title}</h5>
-            <p class="card-text text-start">${txt.description.substring(0,50)}...</p>
+            <p class="card-text text-start">${txt.description.substring(0,20)}...</p>
             <div class="botn">
               <a href="./openBook.html?title=${txt.title}" class="btn btn-sm btn-success border-0 float-end btnBxBook">مشاهده</a>
             </div>

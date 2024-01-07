@@ -8,7 +8,6 @@ async function adabiatTextApi() {
   let adabiatTextArray = "";
   try {
     res = await fetch("https://server.khakrizedarya.ir/literature-history/LHBookApi/?format=json");
-    console.log(res);
     if (res.ok) {
       adabiatTextArray = await res.json();
       getUrl(adabiatTextArray["bookApi"]);
@@ -39,6 +38,7 @@ function cardGenerator(mainTxtObj) {
   let image = mainTxtObj.image || "./image/placeholder.png"
   let author = mainTxtObj.author || "—"
   let publisher = mainTxtObj.publisher || "—"
+  let researcher = mainTxtObj.researcher || "—"
   let description = mainTxtObj.description || "—"
   let pdf = mainTxtObj.pdf_file || "—"
   
@@ -53,6 +53,9 @@ function cardGenerator(mainTxtObj) {
     <hr>
     <h5>نویسنده:
       <p class="d-inline-block">${author}</p>
+    </h5>
+    <h5>پژوهشگر:
+      <p class="d-inline-block mt-2">${researcher}</p>
     </h5>
     <h5>ناشر:
       <p class="d-inline-block mt-2">${publisher}</p>
@@ -69,6 +72,7 @@ function cardGenerator(mainTxtObj) {
   textBookInfo.insertAdjacentHTML("beforeend" , infoCard)
   descriptionBook.insertAdjacentHTML("beforeend" , cardDescriptio)
   downloadPdf.setAttribute("href" , `https://server.khakrizedarya.ir${pdf}`)
+  console.log(pdf);
 }
 
 window.addEventListener("load", adabiatTextApi);

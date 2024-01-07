@@ -1,7 +1,6 @@
 let videoContainer = document.querySelector(".video-container");
 let downloadBtn = document.querySelector(".download");
 let infoContainer = document.querySelector(".info-container");
-let clipDescription = document.querySelector(".clip-description");
 
 async function determineApiAndCall() {
   let locationSearch = new URLSearchParams(location.search);
@@ -67,40 +66,26 @@ function cardGenerator(clipObj) {
   let title = clipObj.title || "—";
   let img = clipObj.thumbnail || "./image/placeholder.png";
   let clip = clipObj.clip || "./image/placeholder.png";
-  let designer = clipObj.designer || "—";
   let editing = clipObj.editing || "—";
-  let director = clipObj.director || "—";
 
   let cardVideo = `
         <h4>${title}</h4>
-        <hr>
-        <div class="card-body p-0 m-0">
-            <video poster="https://server.khakrizedarya.ir${img}" class="img-fluid video-size" controls>
-                <source src="https://server.khakrizedarya.ir${clip}">
-            </video>
-        </div>
+        <hr/>
+        <video preload="auto" poster="https://server.khakrizedarya.ir${img}" class="img-fluid video-size" controls>
+            <source src="https://server.khakrizedarya.ir${clip}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         `;
 
   let cardInfo = `
         <hr>
-        <h5>طراح:
-            <p class="d-inline-block mt-2">${designer}</p>
-        <h5>تدوین:
-            <p class="d-inline-block mt-2">${editing}</p>
-        <h5>کارگردان:
-            <p class="d-inline-block mt-2">${director}</p>
-        `;
-
-  let descriptionCard = `
-        <hr class="mt-4">
-        <h3>${title}</h3>
-        <p></p>
+        <h5>تدوین و تنظیم:
+            <p class="d-inline-block m-0 mt-2">${editing}</p>
         `;
 
   downloadBtn.setAttribute("href", `https://server.khakrizedarya.ir${clip}`);
   videoContainer.insertAdjacentHTML("beforeend", cardVideo);
   infoContainer.insertAdjacentHTML("beforeend", cardInfo);
-  clipDescription.insertAdjacentHTML("beforeend", descriptionCard);
 }
 
 window.addEventListener("load", determineApiAndCall);

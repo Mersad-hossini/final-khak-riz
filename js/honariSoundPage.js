@@ -1,5 +1,4 @@
 let infoContainer = document.querySelector(".info-container");
-let infoDescription = document.querySelector(".info-description");
 let soundContainer = document.querySelector(".sound-container");
 
 // Player
@@ -14,11 +13,10 @@ async function honariSoundApi() {
   let res = "";
   let honariSoundArray = "";
   try {
-    res = await fetch("data/honariSound.json");
+    res = await fetch("https://server.khakrizedarya.ir/cinamtic-art/RadioApi/?format=json");
     if (res.ok) {
       honariSoundArray = await res.json();
-      console.log(honariSoundArray);
-      getUrl(honariSoundArray)
+      getUrl(honariSoundArray["RadioApi"])
     }
   } catch (err) {
     console.log(err);
@@ -44,7 +42,7 @@ function cardGenerator(sotiObj) {
   let cardImg = `
     <h3>معرفی  ${sotiObj.title}</h3>
     <hr>
-    <img src="${sotiObj.img}" class="img-fluid d-block mt-3 float-start rounded-1 " style="width: 100%;"/>`;
+    <img src="https://server.khakrizedarya.ir${sotiObj.audio_image}" class="img-fluid d-block right-img mt-3 float-start rounded-1 " style="width: 100%;"/>`;
 
   let cardDetails = `
     <hr>
@@ -52,25 +50,19 @@ function cardGenerator(sotiObj) {
         <p class="d-inline-block">${sotiObj.actors}</p>
     </h5>
     <h5>تدوین :
-        <p class="d-inline-block mt-2">${sotiObj.editing}</p>
+        <p class="d-inline-block mt-2">${sotiObj.editor}</p>
     </h5>
     <h5>نویسنده:
         <p class="d-inline-block mt-2">${sotiObj.writer}</p>
     </h5>
     <h5>کارگردان:
-        <p class="d-inline-block mt-2">${sotiObj.director}</p>
+        <p class="d-inline-block mt-2 mb-0">${sotiObj.director}</p>
     </h5>`;
 
-  let cardDescription = `
-    <hr class="mt-4 ">
-    <h3>توضیحات ${sotiObj.title}</h3>
-    <p>${sotiObj.editing}</p>`;
-
-  music.setAttribute("src", sotiObj.audio);
-  downloadSoundBtn.setAttribute("href", sotiObj.audio);
+  music.setAttribute("src", `https://server.khakrizedarya.ir${sotiObj.audio}`);
+  downloadSoundBtn.setAttribute("href", `https://server.khakrizedarya.ir${sotiObj.audio}`);
   soundContainer.insertAdjacentHTML("beforeend", cardImg);
   infoContainer.insertAdjacentHTML("beforeend", cardDetails);
-  infoDescription.insertAdjacentHTML("beforeend", cardDescription);
 }
 
 function playSong() {

@@ -43,10 +43,8 @@ function cardGenerator(sotiObj) {
   let title = sotiObj.title || "—" 
   let image = sotiObj.image || "./image/placeholder.png" 
   let author = sotiObj.author || "—" 
-  let publisher = sotiObj.publisher || "—" 
-  let Translator = sotiObj.Translator || "—" 
-  let dataPublish = sotiObj.dataPublish || "—" 
-  let PublishAddress = sotiObj.PublishAddress || "—" 
+  let editor = sotiObj.editor || "—" 
+  let narrator = sotiObj.narrator || "—" 
   let description = sotiObj.description || "—" 
   let audioLink = sotiObj.audio_file || "—"
 
@@ -58,26 +56,20 @@ function cardGenerator(sotiObj) {
 
   let cardDetails = `
     <hr>
-    <h5>نویسنده:
+    <h5> نویسنده:
       <p class="d-inline-block">${author}</p>
     </h5>
-    <h5>ناشر:
-      <p class="d-inline-block mt-2">${publisher}</p>
+    <h5>تدوین و تنظیم:
+      <p class="d-inline-block mt-2">${editor}</p>
     </h5>
-    <h5>مترجم:
-      <p class="d-inline-block mt-2">${Translator}</p>
-    </h5>
-    <h5>تاریخ نشر:
-      <p class="d-inline-block mt-2">${dataPublish}</p>
-    </h5>
-    <h5>محل نشر:
-      <p class="d-inline-block mt-2">${PublishAddress}</p>
+    <h5>خوانش:
+      <p class="d-inline-block mt-2">${narrator}</p>
     </h5>
     `;
 
   let cardDescription = `
     <hr class="mt-4 ">
-    <h3>${title}</h3>
+    <h3>توضیحات:</h3>
     <p>${description}</p>
     `;
 
