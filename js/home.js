@@ -79,7 +79,7 @@ $(document).ready(function () {
       responsive: {
         0: {
           items: 1,
-          nav: true,
+          nav: false,
         },
         468: {
           items: 2,
