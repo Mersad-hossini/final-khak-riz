@@ -7,11 +7,11 @@ async function honariSoundApi() {
   let res = "";
   let honariSoundArray = "";
   try {
-    res = await fetch("https://server.khakrizedarya.ir/cinamtic-art/RadioApi/?format=json");
+    res = await fetch("https://server.khakrizedarya.ir/cinamtic-art/RadioApiAll/?format=json");
     if (res.ok) {
       honariSoundArray = await res.json();
-      displaySound(honariSoundArray["RadioApi"], soundContainer, rowsCount, currentPage);
-      setUpPagination(honariSoundArray["RadioApi"], paginationContainer, rowsCount);
+      displaySound(honariSoundArray["RadioApiAll"], soundContainer, rowsCount, currentPage);
+      setUpPagination(honariSoundArray["RadioApiAll"], paginationContainer, rowsCount);
     }
   } catch (err) {
     console.log(err);
@@ -22,7 +22,7 @@ function cardGenerator(soundObj) {
   let card = `
         <div class="col-lg-3 col col-md-4 col-sm-6 d-flex justify-content-center">
             <div class="card h-100" style="width: 16rem">
-                <a href="./honariSoundPage.html?title=${soundObj.title}"><img src="https://server.khakrizedarya.ir${soundObj.audio_image}" class="card-img-top img-fluid" alt="image book pdf"/></a>
+                <a href="./honariSoundPage.html?title=${soundObj.title}"><img loading="lazy" src="https://server.khakrizedarya.ir${soundObj.audio_image}" class="card-img-top img-fluid" alt="image book pdf"/></a>
                 <div class="card-body">
                     <h5 class="card-title mb-3 text-center fw-bolder">${soundObj.title}</h5>
                     <a href="./honariSoundPage.html?title=${soundObj.title}" class="btn btn-success float-end w-100">مشاهده</a>

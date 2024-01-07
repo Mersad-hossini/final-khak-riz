@@ -13,10 +13,10 @@ async function honariSoundApi() {
   let res = "";
   let honariSoundArray = "";
   try {
-    res = await fetch("https://server.khakrizedarya.ir/cinamtic-art/RadioApi/?format=json");
+    res = await fetch("https://server.khakrizedarya.ir/cinamtic-art/RadioApiAll/?format=json");
     if (res.ok) {
       honariSoundArray = await res.json();
-      getUrl(honariSoundArray["RadioApi"])
+      getUrl(honariSoundArray["RadioApiAll"])
     }
   } catch (err) {
     console.log(err);

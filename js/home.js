@@ -45,11 +45,11 @@ window.addEventListener("load", headerSliderApi);
 // owl Carousel 1(Radi)
 $(document).ready(function () {
   let apiUrl =
-    "https://server.khakrizedarya.ir/cinamtic-art/RadioApi/?format=json";
+    "https://server.khakrizedarya.ir/cinamtic-art/RadioApiAll/?format=json";
 
   $.get(apiUrl, function (data) {
     // Shuffle the array of items
-    const shuffledItems = shuffleArray(data["RadioApi"]);
+    const shuffledItems = shuffleArray(data["RadioApiAll"]);
 
     // Take only the first 5 items
     const selectedItems = shuffledItems.slice(0, 5);
