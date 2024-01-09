@@ -47,16 +47,16 @@ function cardGenerator(sotiObj) {
   let cardDetails = `
     <hr>
     <h5>بازیگران:
-        <p class="d-inline-block">${sotiObj.actors}</p>
+        <p class="d-inline-block small-size">${sotiObj.actors}</p>
     </h5>
     <h5>تدوین :
-        <p class="d-inline-block mt-2">${sotiObj.editor}</p>
+        <p class="d-inline-block mt-2 small-size">${sotiObj.editor}</p>
     </h5>
     <h5>نویسنده:
-        <p class="d-inline-block mt-2">${sotiObj.writer}</p>
+        <p class="d-inline-block mt-2 small-size">${sotiObj.writer}</p>
     </h5>
     <h5>کارگردان:
-        <p class="d-inline-block mt-2 mb-0">${sotiObj.director}</p>
+        <p class="d-inline-block mt-2 mb-0 small-size">${sotiObj.director}</p>
     </h5>`;
 
   music.setAttribute("src", `https://server.khakrizedarya.ir${sotiObj.audio}`);

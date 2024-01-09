@@ -67,6 +67,8 @@ function cardGenerator(clipObj) {
   let img = clipObj.thumbnail || "./image/placeholder.png";
   let clip = clipObj.clip || "./image/placeholder.png";
   let editing = clipObj.editing || "—";
+  let director = clipObj.director || "—";
+  let designer = clipObj.designer || "—";
 
   let cardVideo = `
         <h4>${title}</h4>
@@ -80,7 +82,11 @@ function cardGenerator(clipObj) {
   let cardInfo = `
         <hr>
         <h5>تدوین و تنظیم:
-            <p class="d-inline-block m-0 mt-2">${editing}</p>
+            <p class="d-inline-block m-0 mt-2 small-size">${editing}</p>
+        <h5>کارگردان:
+            <p class="d-inline-block m-0 mt-2 small-size">${director}</p>
+        <h5>طراح:
+            <p class="d-inline-block m-0 mt-2 small-size">${designer}</p>
         `;
 
   downloadBtn.setAttribute("href", `https://server.khakrizedarya.ir${clip}`);

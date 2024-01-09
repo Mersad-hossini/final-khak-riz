@@ -20,58 +20,52 @@ async function filmApi() {
   let res = "";
   let honariFilmArray = "";
   try {
-    res = await fetch("data/honariFilm.json");
+    res = await fetch("https://server.khakrizedarya.ir/cinamtic-art/MovieApi/?format=json");
     if (res.ok) {
       honariFilmArray = await res.json();
-      console.log(honariFilmArray);
-      displayClipCard(honariFilmArray, cardContainer, rowsCount, currentPage);
-      setUpPagination(honariFilmArray, paginationContainer, rowsCount);
+      displayClipCard(honariFilmArray["MovieApi"], cardContainer, rowsCount, currentPage);
+      setUpPagination(honariFilmArray["MovieApi"], paginationContainer, rowsCount);
     }
   } catch (err) {
     console.log(err);
   }
-
 }
 
 async function motionApi() {
   let res = "";
   let honariMotionArray = "";
   try {
-    res = await fetch("data/honariMotion.json");
+    res = await fetch("https://server.khakrizedarya.ir/cinamtic-art/MotionGraphicApi/?format=json");
     if (res.ok) {
       honariMotionArray = await res.json();
-      console.log(honariMotionArray);
-      displayClipCard(honariMotionArray, cardContainer, rowsCount, currentPage);
-      setUpPagination(honariMotionArray, paginationContainer, rowsCount);
+      displayClipCard(honariMotionArray["MotionGraphicApi"], cardContainer, rowsCount, currentPage);
+      setUpPagination(honariMotionArray["MotionGraphicApi"], paginationContainer, rowsCount);
     }
   } catch (err) {
     console.log(err);
   }  
-
 }
 
 async function videoMusicApi() {
   let res = "";
   let videoMusicArray = "";
   try {
-    res = await fetch("data/honariVideoMusic.json");
+    res = await fetch("https://server.khakrizedarya.ir/cinamtic-art/VideoMusicApi/?format=json");
     if (res.ok) {
       videoMusicArray = await res.json();
-      console.log(videoMusicArray);
-      displayClipCard(videoMusicArray, cardContainer, rowsCount, currentPage);
-      setUpPagination(videoMusicArray, paginationContainer, rowsCount);
+      displayClipCard(videoMusicArray["VideoMusicApi"], cardContainer, rowsCount, currentPage);
+      setUpPagination(videoMusicArray["VideoMusicApi"], paginationContainer, rowsCount);
     }
   } catch (err) {
     console.log(err);
   }    
-
 }
 
 function cardGenerator(clipArray) {
   let card = `
     <div class="col-lg-3 col col-md-4 col-sm-6 d-flex justify-content-center">
         <div class="card h-100" style="width: 16rem">
-            <a href="./honariClipPage.html?title=${clipArray.title}"><img src="${clipArray.img}" class="card-img-top img-fluid" alt="image book pdf"/></a>
+            <a href="./honariClipPage.html?title=${clipArray.title}"><img src="https://server.khakrizedarya.ir${clipArray.img}" class="card-img-top img-fluid" alt="image book pdf"/></a>
             <div class="card-body">
                 <h5 class="card-title fw-bolder">${clipArray.title}</h5>
                 <p class="card-text">${clipArray.director}</p>

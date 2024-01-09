@@ -44,42 +44,42 @@ async function filmApi() {
   let res = "";
   let honariFilmArray = "";
   try {
-    res = await fetch("data/honariFilm.json");
+    res = await fetch("https://server.khakrizedarya.ir/cinamtic-art/MovieApi/?format=json");
     if (res.ok) {
       honariFilmArray = await res.json();
     }
   } catch (err) {
     console.log(err);
   }
-  return honariFilmArray
+  return honariFilmArray["MovieApi"]
 }
 
 async function motionApi() {
   let res = "";
   let honariMotionArray = "";
   try {
-    res = await fetch("data/honariMotion.json");
+    res = await fetch("https://server.khakrizedarya.ir/cinamtic-art/MotionGraphicApi/?format=json");
     if (res.ok) {
       honariMotionArray = await res.json();
     }
   } catch (err) {
     console.log(err);
   }  
-  return honariMotionArray
+  return honariMotionArray["MotionGraphicApi"]
 }
 
 async function videoMusicApi() {
   let res = "";
   let videoMusicArray = "";
   try {
-    res = await fetch("data/honariVideoMusic.json");
+    res = await fetch("https://server.khakrizedarya.ir/cinamtic-art/VideoMusicApi/?format=json");
     if (res.ok) {
       videoMusicArray = await res.json();
     }
   } catch (err) {
     console.log(err);
   }    
-  return videoMusicArray
+  return videoMusicArray["VideoMusicApi"]
 }
 
 function cardGenerator(clipObj) {
@@ -100,29 +100,29 @@ function cardGenerator(clipObj) {
         <h4>${title}</h4>
         <hr>
         <div class="card-body p-0 m-0">
-        <video poster="${img}" class="img-fluid" controls>
-            <source src="${clip}">
+        <video poster="https://server.khakrizedarya.ir${img}" class="img-fluid" controls>
+            <source src="https://server.khakrizedarya.ir${clip}">
         </video>
         </div>`;
 
   let cardInfo = `
         <hr>
         <h5>خواننده:
-            <p class="d-inline-block mt-2">${singer}</p>
+            <p class="d-inline-block mt-2 small-size">${singer}</p>
         <h5>تدوین:
-            <p class="d-inline-block mt-2">${editing}</p>
+            <p class="d-inline-block mt-2 small-size">${editing}</p>
         <h5>شاعر:
-            <p class="d-inline-block mt-2">${poet}</p>
+            <p class="d-inline-block mt-2 small-size">${poet}</p>
         <h5>کارگردان:
-            <p class="d-inline-block mt-2">${director}</p>
+            <p class="d-inline-block mt-2 small-size">${director}</p>
         <h5>بازیگران:
-            <p class="d-inline-block mt-2">${actors}</p>
+            <p class="d-inline-block mt-2 small-size">${actors}</p>
         <h5>نویسنده:
-            <p class="d-inline-block mt-2">${writer}</p>
+            <p class="d-inline-block mt-2 small-size">${writer}</p>
         <h5>طراح:
-            <p class="d-inline-block mt-2">${designer}</p>
+            <p class="d-inline-block mt-2 small-size">${designer}</p>
         <h5>اهنگ ساز:
-            <p class="d-inline-block mt-2">${composer}</p>`;
+            <p class="d-inline-block mt-2 small-size">${composer}</p>`;
 
   let descriptionCard = `
         <hr class="mt-4 ">
@@ -132,7 +132,7 @@ function cardGenerator(clipObj) {
   videoContainer.insertAdjacentHTML("beforeend", cardVideo);
   infoContainer.insertAdjacentHTML("beforeend", cardInfo);
   descriptionContainer.insertAdjacentHTML("beforeend", descriptionCard);
-  downloadBtn.setAttribute("href", clip);
+  downloadBtn.setAttribute("href", `https://server.khakrizedarya.ir${clip}`);
 }
 
 window.addEventListener("load" , determineApiAndCall)

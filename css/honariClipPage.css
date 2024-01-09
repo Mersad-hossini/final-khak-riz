@@ -146,3 +146,7 @@ a {
     min-width: 100%;
     min-height: 20vw; /* 100 * 9 / 16 */
 }
+
+.small-size {
+    font-size: 18px;
+}

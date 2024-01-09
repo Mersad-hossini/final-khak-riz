@@ -121,3 +121,7 @@ a {
     position: relative;
     right: -16px;
 }
+
+.small-size {
+    font-size: 18px;
+}

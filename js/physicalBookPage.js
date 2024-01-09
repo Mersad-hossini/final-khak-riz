@@ -51,16 +51,16 @@ function cardGenerator(bookObj) {
     let cardDetails = `
       <hr>
       <h5>نویسنده:
-        <p class="d-inline-block">${author}</p>
+        <p class="d-inline-block small-size">${author}</p>
       </h5>
       <h5>ناشر:
-        <p class="d-inline-block mt-2">${publisher}</p>
+        <p class="d-inline-block mt-2 small-size">${publisher}</p>
       </h5>
       <h5>تاریخ نشر:
-        <p class="d-inline-block mt-2">${publication_date}</p>
+        <p class="d-inline-block mt-2 small-size">${publication_date}</p>
       </h5>
       <h5>محل نشر:
-        <p class="d-inline-block mt-2">${publication_place}</p>
+        <p class="d-inline-block mt-2 small-size">${publication_place}</p>
       </h5>
     `;
 

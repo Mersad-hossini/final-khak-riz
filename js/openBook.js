@@ -52,13 +52,13 @@ function cardGenerator(mainTxtObj) {
   let infoCard = `
     <hr>
     <h5>نویسنده:
-      <p class="d-inline-block">${author}</p>
+      <p class="d-inline-block small-size">${author}</p>
     </h5>
     <h5>پژوهشگر:
-      <p class="d-inline-block mt-2">${researcher}</p>
+      <p class="d-inline-block mt-2 small-size">${researcher}</p>
     </h5>
     <h5>ناشر:
-      <p class="d-inline-block mt-2">${publisher}</p>
+      <p class="d-inline-block mt-2 small-size">${publisher}</p>
     </h5>
     `;
 

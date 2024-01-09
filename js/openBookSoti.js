@@ -57,13 +57,13 @@ function cardGenerator(sotiObj) {
   let cardDetails = `
     <hr>
     <h5> نویسنده:
-      <p class="d-inline-block">${author}</p>
+      <p class="d-inline-block small-size">${author}</p>
     </h5>
     <h5>تدوین و تنظیم:
-      <p class="d-inline-block mt-2">${editor}</p>
+      <p class="d-inline-block mt-2 small-size">${editor}</p>
     </h5>
     <h5>خوانش:
-      <p class="d-inline-block mt-2">${narrator}</p>
+      <p class="d-inline-block mt-2 small-size">${narrator}</p>
     </h5>
     `;
 

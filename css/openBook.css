@@ -27,12 +27,15 @@ a {
     right: -16px;
 }
 
-
 .bgImgBook img {
-    width: 75%;
+    width: 100%;
     align-items: center;
     justify-content: center;
     justify-items: center;
     margin: 0 auto;
-    height: 300px;
+    height: 175%;
+}
+
+.small-size {
+    font-size: 18px;
 }

@@ -61,10 +61,19 @@ function generateSection(mainYadman) {
       <img src="https://server.khakrizedarya.ir${image}" class="card-img-top img-fluid"
         alt="..." style="width:100%;height:255px">
       <div class="card-body">
-        <h3 class="card-title">نام یادمان: ${name}</h3>
-        <h5 class="card-text">نشانی یادمان: ${address}</h5>
-        <h5 class="card-text">تاریخ تشییع جنازه: ${funeral_date}</h5>
-        <h5 class="card-text">تاریخ احداث یادمان: ${data}</h5>
+        <h4>نام یادمان:
+          <p class="d-inline-block" style="font-size:18px">${name}</p>
+        </h4>
+        <h4>نشانی یادمان: 
+          <p class="d-inline-block" style="font-size:18px">${address}</p>
+        </h4>
+        <h4>تاریخ تشییع جنازه: 
+          <p class="d-inline-block" style="font-size:18px">${funeral_date}</p>
+        </h4>
+        <h4>تاریخ احداث یادمان:
+          <p class="d-inline-block" style="font-size:18px">${data}</p>
+        </h4>
+
       </div>
     </div>`
   );

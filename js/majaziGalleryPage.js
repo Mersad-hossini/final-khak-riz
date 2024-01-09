@@ -47,10 +47,10 @@ function cardGenerator(mainmajaziObj) {
   let cardDetails = `
         <hr>
         <h5>نام اثر:
-            <p class="d-inline-block">${title}</p>
+            <p class="d-inline-block small-size">${title}</p>
         </h5>
         <h5>طراح:
-            <p class="d-inline-block mt-2 m-0">${designer}</p>`;
+            <p class="d-inline-block mt-2 m-0 small-size">${designer}</p>`;
 
 
   downloadBtn.addEventListener("click", async () => {
