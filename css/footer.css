@@ -18,6 +18,10 @@ a {
     height: 40px;
 }
 
+.text-warning {
+    font-size: calc(1.100rem + .3vw);
+}
+
 .footer-iconSize img {
     width: 40px;
     height: 40px;

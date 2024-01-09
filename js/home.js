@@ -57,10 +57,10 @@ $(document).ready(function () {
     selectedItems.forEach(function (item) {
       $(".owl-one").append(`            
       <div class="item">
-        <div class="card mb-4 text-center shadow">
+        <div class="card h-100 mb-4 text-center shadow">
           <img src="https://server.khakrizedarya.ir${item.audio_image}" alt="" />
           <div class="card-body">
-            <h5 class="card-title">${item.title}</h5>
+            <h4 class="card-title">${item.title}</h4>
             <a href="./honariSoundPage.html?title=${item.title}" target="_blank" class="btn btn-sm btn-success border-0 w-100 slider-button">مشاهده</a>
           </div>
         </div>

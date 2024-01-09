@@ -8,7 +8,7 @@ async function yadmanApi() {
   let res = "";
   let yadmanDatas = "";
   try {
-    res = await fetch("https://server.khakrizedarya.ir/martyr/YademanApi/?format=json");
+    res = await fetch("https://server.khakrizedarya.ir/martyr/YademanPathAPI");
     if (res.ok) {
       yadmanDatas = await res.json();
       setUpPagination(yadmanDatas["martyrApi"], paginationContainer, rowsCount);
@@ -25,14 +25,13 @@ function cardGenerator(yadmanData) {
         <div class="card card-box-imgs h-100 text-center">
           <a href="./yadman-mini.html?name=${yadmanData.name}">
             <img
-              src="https://server.khakrizedarya.ir${yadmanData.image}" loading="lazy"
-              class="card-img-top"
+              src="https://server.khakrizedarya.ir${yadmanData.image}"
+              class="card-img-top img-fluid"
               alt="..."
             />
           </a>
           <div class="card-body">
-            <h5 class="fw-bold card-title">${yadmanData.name}</h5>
-            <p class="mt-2 card-text">${yadmanData.city.substring(0, 30)}</p>
+            <h5 class="fw-bold mb-3 card-title">${yadmanData.name}</h5>
             <a
               href="./yadman-mini.html?name=${yadmanData.name}"
               class="btn btn-success float-end w-100"
