@@ -14,7 +14,7 @@ async function honariSoundApi() {
       setUpPagination(honariSoundArray["RadioApiAll"], paginationContainer, rowsCount);
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
 }
 

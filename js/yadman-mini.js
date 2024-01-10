@@ -16,7 +16,7 @@ async function yadmanApi() {
       showInfo(yadmanDatas["martyrApi"]);
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
 }
 
@@ -30,7 +30,7 @@ async function yadmanSubsetApi() {
       showInfo(subsetDatas["martyrApi"]);
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
 }
 
@@ -41,7 +41,7 @@ function showInfo(yadmanData) {
   console.log(mainYadman);
 
   if (!mainYadman) {
-    window.location.href = "index.html";
+    window.location.href = "page404.html";
   } else {
     generateSection(mainYadman);
     generateYadmanCard(mainYadman);

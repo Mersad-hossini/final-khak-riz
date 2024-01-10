@@ -49,7 +49,7 @@ async function filmApi() {
       honariFilmArray = await res.json();
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
   return honariFilmArray["MovieApi"]
 }
@@ -63,7 +63,7 @@ async function motionApi() {
       honariMotionArray = await res.json();
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }  
   return honariMotionArray["MotionGraphicApi"]
 }
@@ -77,7 +77,7 @@ async function videoMusicApi() {
       videoMusicArray = await res.json();
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }    
   return videoMusicArray["VideoMusicApi"]
 }

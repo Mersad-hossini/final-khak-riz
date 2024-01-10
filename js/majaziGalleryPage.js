@@ -14,7 +14,7 @@ async function majaziGrapicApi() {
       getUrl(majaziGrapicArray["GraphicDesignApi"]);
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
 }
 
@@ -27,7 +27,7 @@ function getUrl(majaziArray) {
   });
 
   if (!mainmajazi) {
-    window.location.href = "index.html";
+    window.location.href = "page404.html";
   } else {
     cardGenerator(mainmajazi);
   }

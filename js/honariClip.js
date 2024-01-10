@@ -13,7 +13,7 @@ if (getLocation === "videoMusic") {
 } else if (getLocation === "film") {
   filmApi();
 } else {
-  window.location.href = "index.html";
+  window.location.href = "./page404.html";
 }
 
 async function filmApi() {
@@ -42,7 +42,7 @@ async function motionApi() {
       setUpPagination(honariMotionArray["MotionGraphicApi"], paginationContainer, rowsCount);
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }  
 }
 
@@ -57,7 +57,7 @@ async function videoMusicApi() {
       setUpPagination(videoMusicArray["VideoMusicApi"], paginationContainer, rowsCount);
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }    
 }
 

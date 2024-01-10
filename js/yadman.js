@@ -15,7 +15,7 @@ async function yadmanApi() {
       displayYadman(yadmanDatas["martyrApi"], yadmanRow, rowsCount, currentPage);
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
 }
 

@@ -13,7 +13,7 @@ async function physicalBookApi() {
       getUrl(physicalBookArray["GraphicDesignApi"])
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
 }
 
@@ -26,7 +26,7 @@ function getUrl(BookArray) {
   });
 
   if (!mainBook) {
-    window.location.href = "index.html";
+    window.location.href = "page404.html";
   } else {
     cardGenerator(mainBook);
   }

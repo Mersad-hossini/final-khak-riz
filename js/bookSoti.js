@@ -14,7 +14,7 @@ async function adabiatSotiApi() {
       setUpPagination(adabiatSotiArray["AudioBookAPI"], paginationContainer, rowsCount);
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
 }
 

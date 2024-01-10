@@ -11,7 +11,7 @@ if (getLocation === "videoClip") {
 } else if (getLocation === "motinGrapic") {
     motionApi();
 } else {
-    window.location.href = "index.html"
+    window.location.href = "page404.html"
 }
 
 async function clipApi() {
@@ -25,7 +25,7 @@ async function clipApi() {
       setUpPagination(majaziClipArray["VideoClipApi"], paginationContainer, rowsCount)
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
 }
 
@@ -40,7 +40,7 @@ async function motionApi() {
       setUpPagination(majaziMotinArray["MotionGraphiApi"], paginationContainer, rowsCount)
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
 }
 

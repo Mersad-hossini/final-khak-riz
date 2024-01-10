@@ -15,7 +15,7 @@ async function headerSliderApi() {
       throw Error;
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
 }
 

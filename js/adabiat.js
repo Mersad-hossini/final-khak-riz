@@ -11,7 +11,7 @@ async function adabiatSotiApi() {
       sotiSeparator(adabiatSotiArray["AudioBookAPI"]);
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
 }
 
@@ -25,7 +25,7 @@ async function adabiatTextApi() {
       cardTextSeparator(adabiatTextArray["bookApi"]);
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
 }
 

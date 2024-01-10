@@ -14,7 +14,7 @@ async function physicalBookApi() {
       setUpPagination(physicalBookArray['GraphicDesignApi'], paginationContainer, rowsCount)
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
 }
 

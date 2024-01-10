@@ -30,7 +30,7 @@ async function determineApiAndCall() {
       }
     }
   }
-  window.location.href = "index.html";
+  window.location.href = "page404.html";
 }
 
 async function clipApi() {
@@ -42,7 +42,7 @@ async function clipApi() {
       majaziClipArray = await res.json();
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
   return majaziClipArray["VideoClipApi"];
 }
@@ -56,7 +56,7 @@ async function motionApi() {
       majaziMotinArray = await res.json();
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
   return majaziMotinArray["MotionGraphiApi"]
 }

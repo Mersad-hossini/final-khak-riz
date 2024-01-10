@@ -20,7 +20,7 @@ async function adabiatSotiApi() {
       getUrl(adabiatSotiArray["AudioBookAPI"])
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
 }
 
@@ -33,7 +33,7 @@ function getUrl(sotiArray) {
   });
 
   if (!mainSoti) {
-    window.location.href = "index.html";
+    window.location.href = "page404.html";
   } else {
   }
   cardGenerator(mainSoti);

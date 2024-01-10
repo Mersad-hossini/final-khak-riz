@@ -13,7 +13,7 @@ async function adabiatTextApi() {
       getUrl(adabiatTextArray["bookApi"]);
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
 }
 
@@ -26,7 +26,7 @@ function getUrl(textBookArray) {
   });
 
   if (!mainTxt) {
-    window.location.href = "index.html";
+    window.location.href = "page404.html";
   } else {
     cardGenerator(mainTxt);
   }
@@ -72,7 +72,6 @@ function cardGenerator(mainTxtObj) {
   textBookInfo.insertAdjacentHTML("beforeend" , infoCard)
   descriptionBook.insertAdjacentHTML("beforeend" , cardDescriptio)
   downloadPdf.setAttribute("href" , `https://server.khakrizedarya.ir${pdf}`)
-  console.log(pdf);
 }
 
 window.addEventListener("load", adabiatTextApi);

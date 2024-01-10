@@ -1,31 +1,37 @@
-// کوچک و بزرگ شدن نوبار با اسکرول کردن
+const navbarLogoMd = document.getElementById("nav-logo-bigScreen");
+const navbarLogoSm = document.getElementById("nav-logo-smallScreen");
+const navbar = document.querySelector(".seconde-bar");
+const sticky = navbar.offsetTop;
 
-
-
-let navbarLogo_md = document.getElementById("nav-logo-bigScreen");
-let navbarLogo_sm = document.getElementById("nav-logo-smallScreen");
-let navbar = document.querySelector(".seconde-bar");
-let sticky = navbar.offsetTop;
+// رفتن به بالا
+const goTop = document.getElementById("go-top");
+const goTopValue = document.getElementById("go-top-value");
 
 // ارسال مقادیر سرچ با دکمه ذره بین
-let searchBtn = document.getElementById("search-btn");
-let formSearch = document.getElementById("form-search");
+const searchBtn = document.getElementById("search-btn");
+const formSearch = document.getElementById("form-search");
 
-// Function
-
+// تابع
 function addShadow() {
-  let scrollSize = document.documentElement.scrollTop;
-  if (scrollSize > 130) {
-    navbar.style.boxShadow = "0px 5px 10px #1d1d1d";
-  } else {
-    navbar.style.boxShadow = "";
-  }
+  const position = document.documentElement.scrollTop;
+  const calcHeight =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+  const scrollValue = Math.round((position * 100) / calcHeight);
+
+  goTop.style.display = position > 100 ? "grid" : "none";
+  goTop.style.backgroundImage = `conic-gradient(from 0deg at 50% 50%, #03cc65 ${scrollValue}%, #d7d7d7 ${scrollValue}%)`;
+
+  navbar.style.boxShadow = position > 130 ? "0px 5px 10px #1d1d1d" : "";
 }
 
-function submitBtn() {
+function submitForm() {
   formSearch.submit();
 }
 
-// add event listener
+// افزودن گوش کننده به ایونت‌ها
 document.addEventListener("scroll", addShadow);
-searchBtn.addEventListener("click", submitBtn);
+searchBtn.addEventListener("click", submitForm);
+goTop.addEventListener("click", () => {
+  document.documentElement.scrollTop = 0;
+});

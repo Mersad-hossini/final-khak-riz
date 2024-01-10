@@ -14,7 +14,7 @@ async function adabiatTextApi() {
       setUpPagination(adabiatTextArray["bookApi"], paginationContainer, rowsCount);
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
 }
 

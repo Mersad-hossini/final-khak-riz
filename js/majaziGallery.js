@@ -14,7 +14,7 @@ async function majaziGrapicApi() {
       setUpPagination(majaziGrapicArray["GraphicDesignApi"], paginationContainer, rowsCount);
     }
   } catch (err) {
-    console.log(err);
+    console.error("Error...");
   }
 }
 

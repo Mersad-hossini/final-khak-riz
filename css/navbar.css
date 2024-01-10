@@ -67,6 +67,35 @@ li > .dropdown-item:active {
     background-color: #fff
 }
 
+/* go to the top button */
+
+@media only screen and (min-width:884px) {
+    #go-top {
+        position: fixed;
+        bottom: 20px;
+        right: 10px;
+        height: 60px;
+        width: 60px;
+        display: none;
+        place-items: center;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        z-index: 2;
+    }
+    
+    #go-top-value {
+        display: block;
+        height: calc(100% - 15px);
+        width: calc(100% - 15px);
+        background-color: #ffffff;
+        display: grid;
+        border-radius: 50%;
+        place-items: center;
+        color: #001a2e;
+    }
+}
+
 /* تغییراتی در فیلد سرچ */
 
 .group {
