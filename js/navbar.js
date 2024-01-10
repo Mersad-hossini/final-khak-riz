@@ -1,23 +1,23 @@
-const navbarLogoMd = document.getElementById("nav-logo-bigScreen");
-const navbarLogoSm = document.getElementById("nav-logo-smallScreen");
-const navbar = document.querySelector(".seconde-bar");
-const sticky = navbar.offsetTop;
+let navbarLogoMd = document.getElementById("nav-logo-bigScreen");
+let navbarLogoSm = document.getElementById("nav-logo-smallScreen");
+let navbar = document.querySelector(".seconde-bar");
+let sticky = navbar.offsetTop;
 
 // رفتن به بالا
-const goTop = document.getElementById("go-top");
-const goTopValue = document.getElementById("go-top-value");
+let goTop = document.getElementById("go-top");
+let goTopValue = document.getElementById("go-top-value");
 
 // ارسال مقادیر سرچ با دکمه ذره بین
-const searchBtn = document.getElementById("search-btn");
-const formSearch = document.getElementById("form-search");
+let searchBtn = document.getElementById("search-btn");
+let formSearch = document.getElementById("form-search");
 
 // تابع
 function addShadow() {
-  const position = document.documentElement.scrollTop;
-  const calcHeight =
+  let position = document.documentElement.scrollTop;
+  let calcHeight =
     document.documentElement.scrollHeight -
     document.documentElement.clientHeight;
-  const scrollValue = Math.round((position * 100) / calcHeight);
+  let scrollValue = Math.round((position * 100) / calcHeight);
 
   goTop.style.display = position > 100 ? "grid" : "none";
   goTop.style.backgroundImage = `conic-gradient(from 0deg at 50% 50%, #03cc65 ${scrollValue}%, #d7d7d7 ${scrollValue}%)`;
@@ -32,6 +32,7 @@ function submitForm() {
 // افزودن گوش کننده به ایونت‌ها
 document.addEventListener("scroll", addShadow);
 searchBtn.addEventListener("click", submitForm);
-goTop.addEventListener("click", () => {
+
+goTop.addEventListener("click" , () => {
   document.documentElement.scrollTop = 0;
-});
+})

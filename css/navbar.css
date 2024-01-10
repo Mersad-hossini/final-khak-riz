@@ -69,6 +69,10 @@ li > .dropdown-item:active {
 
 /* go to the top button */
 
+#go-top {
+    display: none;
+}
+
 @media only screen and (min-width:884px) {
     #go-top {
         position: fixed;
