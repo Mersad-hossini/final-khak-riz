@@ -1,6 +1,6 @@
 let majaziContaienr = document.querySelector(".majazi-contaienr");
 let currentPage = 1;
-let rowsCount = 9;
+let rowsCount = 8;
 const paginationContainer = document.getElementById("pagination");
 
 async function majaziGrapicApi() {

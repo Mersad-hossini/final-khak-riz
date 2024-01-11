@@ -13,10 +13,12 @@ async function honariSoundApi() {
   let res = "";
   let honariSoundArray = "";
   try {
-    res = await fetch("https://server.khakrizedarya.ir/cinamtic-art/RadioApiAll/?format=json");
+    res = await fetch(
+      "https://server.khakrizedarya.ir/cinamtic-art/RadioApiAll/?format=json"
+    );
     if (res.ok) {
       honariSoundArray = await res.json();
-      getUrl(honariSoundArray["RadioApiAll"])
+      getUrl(honariSoundArray["RadioApiAll"]);
     }
   } catch (err) {
     console.error("Error...");
@@ -59,52 +61,35 @@ function cardGenerator(sotiObj) {
         <p class="d-inline-block mt-2 mb-0 small-size">${sotiObj.director}</p>
     </h5>`;
 
-  music.setAttribute("src", `https://server.khakrizedarya.ir${sotiObj.audio}`);
-  downloadSoundBtn.setAttribute("href", `https://server.khakrizedarya.ir${sotiObj.audio}`);
   soundContainer.insertAdjacentHTML("beforeend", cardImg);
   infoContainer.insertAdjacentHTML("beforeend", cardDetails);
+
+  downloadSoundBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    let clipUrl = `https://server.khakrizedarya.ir${sotiObj.audio}`;
+    fetch(clipUrl)
+      .then((res) => res.blob())
+      .then((blob) => {
+        let link = document.createElement("a");
+        link.href = window.URL.createObjectURL(blob);
+        link.download = sotiObj.audio;
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+      });
+  });
+
+  fetch(`https://server.khakrizedarya.ir${sotiObj.audio}`)
+    .then((res) => res.blob())
+    .then((blob) => {
+      music.src = URL.createObjectURL(blob);
+    })
+    .catch((error) => {
+      console.error("Error fetching audio file:", error);
+    });
 }
 
-function playSong() {
-  isPlaying = true;
-  playBtn.setAttribute("src", "./image/pause.png");
-  playBtn.setAttribute("title", "Pause");
-  music.play();
-}
-
-function pauseSong() {
-  isPlaying = false;
-  playBtn.setAttribute("src", "./image/play.png");
-  playBtn.setAttribute("title", "Play");
-  music.pause();
-}
-
-function changeState() {
-  if (isPlaying) {
-    pauseSong();
-  } else {
-    playSong();
-  }
-}
-
-function updateProgressBar(e) {
-  if (isPlaying) {
-    let duration = e.srcElement.duration;
-    let currentTime = e.srcElement.currentTime;
-    let progressPercent = (currentTime / duration) * 100;
-    progress.style.width = progressPercent + "%";
-  }
-}
-
-function setProgressBar(e) {
-  let width = this.clientWidth;
-  let clickX = e.offsetX;
-  let duration = music.duration;
-  music.currentTime = (clickX / width) * duration;
-  playSong();
-}
-
-playBtn.addEventListener("click", changeState);
-music.addEventListener("timeupdate", updateProgressBar);
-progressContainer.addEventListener("click", setProgressBar);
 window.addEventListener("load", honariSoundApi);

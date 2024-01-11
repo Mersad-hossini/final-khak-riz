@@ -2,12 +2,15 @@ let imageContainer = document.querySelector(".image-container");
 let textBookInfo = document.querySelector(".textBook-info");
 let descriptionBook = document.querySelector(".description");
 let downloadPdf = document.querySelector(".download-pdf");
+let showPdf = document.querySelector(".show-pdf");
 
 async function adabiatTextApi() {
   let res = "";
   let adabiatTextArray = "";
   try {
-    res = await fetch("https://server.khakrizedarya.ir/literature-history/LHBookApi/?format=json");
+    res = await fetch(
+      "https://server.khakrizedarya.ir/literature-history/LHBookApi/?format=json"
+    );
     if (res.ok) {
       adabiatTextArray = await res.json();
       getUrl(adabiatTextArray["bookApi"]);
@@ -33,15 +36,15 @@ function getUrl(textBookArray) {
 }
 
 function cardGenerator(mainTxtObj) {
-  let title = mainTxtObj.title || "—"
-  let subject = mainTxtObj.subject || "—"
-  let image = mainTxtObj.image || "./image/placeholder.png"
-  let author = mainTxtObj.author || "—"
-  let publisher = mainTxtObj.publisher || "—"
-  let researcher = mainTxtObj.researcher || "—"
-  let description = mainTxtObj.description || "—"
-  let pdf = mainTxtObj.pdf_file || "—"
-  
+  let title = mainTxtObj.title || "—";
+  let subject = mainTxtObj.subject || "—";
+  let image = mainTxtObj.image || "./image/placeholder.png";
+  let author = mainTxtObj.author || "—";
+  let publisher = mainTxtObj.publisher || "—";
+  let researcher = mainTxtObj.researcher || "—";
+  let description = mainTxtObj.description || "—";
+  let pdf = mainTxtObj.pdf_file || "—";
+
   let imgCard = `
     <h4>${title}</h4>
     <hr>
@@ -62,16 +65,33 @@ function cardGenerator(mainTxtObj) {
     </h5>
     `;
 
-    let cardDescriptio = `
+  let cardDescriptio = `
     <hr class="mt-1">
     <h3>${subject}</h3>
     <p>${description}</p>
-    `
+    `;
+
+    downloadPdf.addEventListener("click", async (e) => {
+      e.preventDefault()
+    let pdfUrl = `https://server.khakrizedarya.ir${pdf}`;
+    fetch(pdfUrl)
+      .then((response) => response.blob())
+      .then((blob) => {
+        let link = document.createElement("a");
+        link.href = window.URL.createObjectURL(blob);
+        link.download = pdf;
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+      });
+  });
 
   imageContainer.insertAdjacentHTML("beforeend", imgCard);
-  textBookInfo.insertAdjacentHTML("beforeend" , infoCard)
-  descriptionBook.insertAdjacentHTML("beforeend" , cardDescriptio)
-  downloadPdf.setAttribute("href" , `https://server.khakrizedarya.ir${pdf}`)
+  textBookInfo.insertAdjacentHTML("beforeend", infoCard);
+  descriptionBook.insertAdjacentHTML("beforeend", cardDescriptio);
 }
 
 window.addEventListener("load", adabiatTextApi);

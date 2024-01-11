@@ -63,45 +63,21 @@ a {
     background-color: #ff1414;
 }
 
-.podcast-img {
-    cursor: pointer;
+#music {
+    width: 75%;
+    background-color: #f1f3f4;
 }
 
-/* Progress card sound */
-
-.progress-container {
-    background: #bebebe;
-    border-radius: 15px;
-    cursor: pointer;
-    height: 10px;
-    direction: ltr;
+@media only screen and (min-width:768px) and (max-width:991px) {
+    #music {
+        width: 90%;
+    }
 }
 
-.progress {
-    background: #242323;
-    border-radius: 5px;
-    height: 100%;
-    width: 0%;
-    transition: width 0.1s linear;
-}
-
-.play-icon {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
-
-.download-podcast {
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 16px;
-    border-radius: 15px;
-    border: none;
-    width: 80%;
-}
-
-.download-podcast:hover {
-    color: #fffbfb;
+@media only screen and (max-width:575px) {
+    #music {
+        width: 90%;
+    }
 }
 
 /* استایل دهی به باکس عکس کتاب */

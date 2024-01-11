@@ -14,10 +14,12 @@ async function adabiatSotiApi() {
   let res = "";
   let adabiatSotiArray = "";
   try {
-    res = await fetch("https://server.khakrizedarya.ir/literature-history/LHBookAudioApi/?format=json");
+    res = await fetch(
+      "https://server.khakrizedarya.ir/literature-history/LHBookAudioApi/?format=json"
+    );
     if (res.ok) {
       adabiatSotiArray = await res.json();
-      getUrl(adabiatSotiArray["AudioBookAPI"])
+      getUrl(adabiatSotiArray["AudioBookAPI"]);
     }
   } catch (err) {
     console.error("Error...");
@@ -40,13 +42,13 @@ function getUrl(sotiArray) {
 }
 
 function cardGenerator(sotiObj) {
-  let title = sotiObj.title || "—" 
-  let image = sotiObj.image || "./image/placeholder.png" 
-  let author = sotiObj.author || "—" 
-  let editor = sotiObj.editor || "—" 
-  let narrator = sotiObj.narrator || "—" 
-  let description = sotiObj.description || "—" 
-  let audioLink = sotiObj.audio_file || "—"
+  let title = sotiObj.title || "—";
+  let image = sotiObj.image || "./image/placeholder.png";
+  let author = sotiObj.author || "—";
+  let editor = sotiObj.editor || "—";
+  let narrator = sotiObj.narrator || "—";
+  let description = sotiObj.description || "—";
+  let audioLink = sotiObj.audio_file || "—";
 
   let cardImg = `
     <h3>${title}</h3>
@@ -73,58 +75,37 @@ function cardGenerator(sotiObj) {
     <p>${description}</p>
     `;
 
-  music.setAttribute("src", `https://server.khakrizedarya.ir${audioLink}`);
-  downloadSoundBtn.setAttribute("href", `https://server.khakrizedarya.ir${audioLink}`);
   imgContainer.insertAdjacentHTML("beforeend", cardImg);
   sotiDetails.insertAdjacentHTML("beforeend", cardDetails);
   sotiDescription.insertAdjacentHTML("beforeend", cardDescription);
+
+  fetch(`https://server.khakrizedarya.ir${audioLink}`)
+    .then((res) => res.blob())
+    .then((blob) => {
+      music.src = URL.createObjectURL(blob);
+    })
+    .catch((error) => {
+      console.error("Error fetching audio file:", error);
+    });
+
+  downloadSoundBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    let musicUrl = `https://server.khakrizedarya.ir${audioLink}`;
+
+    fetch(musicUrl)
+      .then((res) => res.blob())
+      .then((blob) => {
+        let link = document.createElement("a");
+        link.href = window.URL.createObjectURL(blob);
+        link.download = audioLink;
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+      });
+  });
 }
-
-function playSong() {
-  isPlaying = true;
-  playBtn.setAttribute("src", "./image/pause.png");
-  playBtn.setAttribute("title", "Pause");
-  music.play();
-}
-
-function pauseSong() {
-  isPlaying = false;
-  playBtn.setAttribute("src", "./image/play.png");
-  playBtn.setAttribute("title", "Play");
-  music.pause();
-}
-
-function changeState() {
-  if (isPlaying) {
-    pauseSong();
-  } else {
-    playSong();
-  }
-}
-
-function updateProgressBar(e) {
-  if (isPlaying) {
-    let duration = e.srcElement.duration;
-    let currentTime = e.srcElement.currentTime;
-    let progressPercent = (currentTime / duration) * 100;
-    progress.style.width = progressPercent + "%";
-  }
-}
-
-function setProgressBar(e) {
-  let width = progressContainer.clientWidth;
-  let clickX = e.clientX - progressContainer.getBoundingClientRect().left;
-
-  let duration = music.duration;
-  let newTime = (clickX / width) * duration;
-
-  music.currentTime = newTime;
-  playSong(); // اگر موزیک در حال پخش نیست، آن را پخش کنید
-}
-
-
-playBtn.addEventListener("click", changeState);
-music.addEventListener("timeupdate", updateProgressBar);
-progressContainer.addEventListener("click", setProgressBar);
 
 window.addEventListener("load", adabiatSotiApi);

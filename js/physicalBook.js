@@ -1,6 +1,6 @@
 let physicalBookContainer = document.querySelector(".physical-book");
 let currentPage = 1;
-let rowsCount = 9;
+let rowsCount = 8;
 const paginationContainer = document.getElementById("pagination");
 
 async function physicalBookApi() {

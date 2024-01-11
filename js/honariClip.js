@@ -1,6 +1,6 @@
 let cardContainer = document.querySelector(".card-container");
 let currentPage = 1;
-let rowsCount = 9;
+let rowsCount = 8;
 const paginationContainer = document.getElementById("pagination");
 
 let locationSearch = new URLSearchParams(location.search);

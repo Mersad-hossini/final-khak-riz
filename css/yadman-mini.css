@@ -1,0 +1,22 @@
+.img-resize {
+    width: 100%;
+    height: 650px;
+}
+
+@media only screen and (max-width:550px) {
+    .img-resize {
+        width: 100%;
+        height: 350px;
+    }
+}
+
+.subset-img {
+    width: auto;
+    height: 250px
+}
+
+@media only screen and (max-width:767px) {
+    .subset-card {
+        /* width: 350px; */
+    }
+}

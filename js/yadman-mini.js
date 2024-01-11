@@ -58,8 +58,8 @@ function generateSection(mainYadman) {
   containerInfo.insertAdjacentHTML(
     "beforeend",
     `<div class="card p-0 p-md-5">
-      <img src="https://server.khakrizedarya.ir${image}" class="card-img-top img-fluid"
-        alt="..." style="width:100%;height:255px">
+      <img src="https://server.khakrizedarya.ir${image}" class="card-img-top img-resize img-fluid"
+        alt="...">
       <div class="card-body">
         <h4>نام یادمان:
           <p class="d-inline-block" style="font-size:18px">${name}</p>
@@ -91,8 +91,8 @@ function generateYadmanCard(mainYadman) {
     yadmanConainerCard.insertAdjacentHTML(
       "beforeend",
       `<div class="col-md-6 col-lg-4">
-        <div class="card">
-          <img src="https://server.khakrizedarya.ir${image}" class="card-img-top" alt="...">
+        <div class="card subset-card">
+          <img src="https://server.khakrizedarya.ir/media/${image}" class="card-img-top img-fluid subset-img" alt="...">
           <div class="card-body">
             <h5 class="card-text">سن: ${age}</h5>
             <h5 class="card-text">محل شهادت: ${place}</h5>

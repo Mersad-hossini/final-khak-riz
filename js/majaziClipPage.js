@@ -37,7 +37,9 @@ async function clipApi() {
   let res = "";
   let majaziClipArray = "";
   try {
-    res = await fetch("https://server.khakrizedarya.ir/cyberspace/VideoClipApi/?format=json");
+    res = await fetch(
+      "https://server.khakrizedarya.ir/cyberspace/VideoClipApi/?format=json"
+    );
     if (res.ok) {
       majaziClipArray = await res.json();
     }
@@ -51,14 +53,16 @@ async function motionApi() {
   let res = "";
   let majaziMotinArray = "";
   try {
-    res = await fetch("https://server.khakrizedarya.ir/cyberspace/MotionGraphiApi/?format=json");
+    res = await fetch(
+      "https://server.khakrizedarya.ir/cyberspace/MotionGraphiApi/?format=json"
+    );
     if (res.ok) {
       majaziMotinArray = await res.json();
     }
   } catch (err) {
     console.error("Error...");
   }
-  return majaziMotinArray["MotionGraphiApi"]
+  return majaziMotinArray["MotionGraphiApi"];
 }
 
 function cardGenerator(clipObj) {
@@ -70,14 +74,25 @@ function cardGenerator(clipObj) {
   let director = clipObj.director || "—";
   let designer = clipObj.designer || "—";
 
-  let cardVideo = `
-        <h4>${title}</h4>
-        <hr/>
-        <video preload="auto" poster="https://server.khakrizedarya.ir${img}" class="img-fluid video-size" controls>
-            <source src="https://server.khakrizedarya.ir${clip}" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        `;
+  fetch(`https://server.khakrizedarya.ir${clip}`)
+    .then((res) => res.blob())
+    .then((blob) => {
+      videoContainer.innerHTML = ""
+      let h4Elem = document.createElement("h4");
+      h4Elem.innerHTML = title;
+      let hrElem = document.createElement("hr");
+      let videoElem = document.createElement("video");
+      videoElem.controls = true;
+      videoElem.setAttribute("poster", `https://server.khakrizedarya.ir${img}`);
+      videoElem.className = "img-fluid video-size";
+
+      let sourceElem = document.createElement("source");
+      sourceElem.src = URL.createObjectURL(blob);
+
+      videoElem.append(sourceElem);
+      videoContainer.append(h4Elem, hrElem, videoElem);
+    });
+    
 
   let cardInfo = `
         <hr>
@@ -89,9 +104,26 @@ function cardGenerator(clipObj) {
             <p class="d-inline-block m-0 mt-2 small-size">${designer}</p>
         `;
 
-  downloadBtn.setAttribute("href", `https://server.khakrizedarya.ir${clip}`);
-  videoContainer.insertAdjacentHTML("beforeend", cardVideo);
   infoContainer.insertAdjacentHTML("beforeend", cardInfo);
+
+  downloadBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    let clipUrl = `https://server.khakrizedarya.ir${clip}`;
+
+    fetch(clipUrl)
+      .then((res) => res.blob())
+      .then((blob) => {
+        let link = document.createElement("a");
+        link.href = window.URL.createObjectURL(blob);
+        link.download = clip;
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+      });
+  });
 }
 
 window.addEventListener("load", determineApiAndCall);

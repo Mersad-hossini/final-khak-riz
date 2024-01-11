@@ -1,6 +1,6 @@
 let textBookContainer = document.querySelector(".textBook-container");
 let currentPage = 1;
-let rowsCount = 9;
+let rowsCount = 8;
 const paginationContainer = document.getElementById("pagination");
 
 async function adabiatTextApi() {

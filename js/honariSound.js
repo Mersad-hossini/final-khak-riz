@@ -1,6 +1,6 @@
 let soundContainer = document.querySelector(".sound-container");
 let currentPage = 1;
-let rowsCount = 9;
+let rowsCount = 8;
 const paginationContainer = document.getElementById("pagination");
 
 async function honariSoundApi() {
