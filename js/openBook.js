@@ -89,6 +89,14 @@ function cardGenerator(mainTxtObj) {
       });
   });
 
+  showPdf.addEventListener("click" , () => {
+    showPdf.href = `./showPdf.html?pdf=${pdf}`
+  })
+
+  downloadPdf.addEventListener("contextmenu" , (e) => {
+      e.preventDefault()
+  })
+
   imageContainer.insertAdjacentHTML("beforeend", imgCard);
   textBookInfo.insertAdjacentHTML("beforeend", infoCard);
   descriptionBook.insertAdjacentHTML("beforeend", cardDescriptio);

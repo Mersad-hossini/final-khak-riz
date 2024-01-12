@@ -98,6 +98,10 @@ a {
     right: -16px;
 }
 
+.download-podcast {
+    width: 100%;
+}
+
 .small-size {
     font-size: 18px;
 }

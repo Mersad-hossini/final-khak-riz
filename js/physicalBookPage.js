@@ -70,12 +70,17 @@ function cardGenerator(bookObj) {
       <p>${description}</p>
     `;
 
+    
   imageContainer.insertAdjacentHTML("beforeend", cardImg);
   detailsContainer.insertAdjacentHTML("beforeend", cardDetails);
   bookDescription.insertAdjacentHTML("beforeend", cardDescription);
 }
 
 bookAddressBtn.addEventListener("click" , () => {
-    window.scrollTo(0, document.body.scrollHeight);
+  window.scrollTo(0, document.body.scrollHeight);
 })
+
+bookAddressBtn.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+});
 window.addEventListener("load", physicalBookApi);

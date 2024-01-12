@@ -82,6 +82,10 @@ function cardGenerator(sotiObj) {
       });
   });
 
+  downloadSoundBtn.addEventListener("contextmenu" , (e) => {
+      e.preventDefault()
+  })
+
   fetch(`https://server.khakrizedarya.ir${sotiObj.audio}`)
     .then((res) => res.blob())
     .then((blob) => {

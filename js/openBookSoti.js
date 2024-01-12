@@ -106,6 +106,9 @@ function cardGenerator(sotiObj) {
         document.body.removeChild(link);
       });
   });
+  downloadSoundBtn.addEventListener("contextmenu" , (e) => {
+      e.preventDefault()
+  })
 }
 
 window.addEventListener("load", adabiatSotiApi);

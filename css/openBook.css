@@ -36,6 +36,10 @@ a {
     height: 175%;
 }
 
+.download-pdf, .show-pdf {
+    width: 100%;
+}
+
 .small-size {
     font-size: 18px;
 }

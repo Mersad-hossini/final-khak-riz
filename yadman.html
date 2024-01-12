@@ -113,7 +113,7 @@
                 height="55"
             /></a>
             <form
-              action="#"
+              action="./resultSearch.html"
               method="get"
               class="d-flex justify-content-center ms-lg-auto"
               id="form-search"
@@ -414,5 +414,13 @@
     <script src="./js/bootstrap.bundle.min.js"></script>
     <!-- Js Link -->
     <script src="./js/yadman.js"></script>
+    <script>
+      let searchBtn = document.getElementById("search-btn");
+      let formSearch = document.getElementById("form-search");
+
+      searchBtn.addEventListener("click", () => {
+        formSearch.submit()
+      });
+    </script>
   </body>
 </html>

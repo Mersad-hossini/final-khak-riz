@@ -65,10 +65,9 @@ function cardGenerator(clipArray) {
   let card = `
     <div class="col-lg-3 col col-md-4 col-sm-6 d-flex justify-content-center">
         <div class="card h-100" style="width: 16rem">
-            <a href="./honariClipPage.html?title=${clipArray.title}"><img src="https://server.khakrizedarya.ir${clipArray.img}" class="card-img-top img-fluid" alt="image book pdf"/></a>
+            <a href="./honariClipPage.html?title=${clipArray.title}"><img src="https://server.khakrizedarya.ir${clipArray.image}" class="card-img-top img-fluid" alt="image book pdf"/></a>
             <div class="card-body">
-                <h5 class="card-title fw-bolder">${clipArray.title}</h5>
-                <p class="card-text">${clipArray.director}</p>
+                <h5 class="card-title mb-3 fw-bolder">${clipArray.title}</h5>
                 <a href="./honariClipPage.html?title=${clipArray.title}" class="btn btn-success float-end w-100">مشاهده</a>
             </div>
         </div>

@@ -77,7 +77,7 @@ function cardGenerator(clipObj) {
   fetch(`https://server.khakrizedarya.ir${clip}`)
     .then((res) => res.blob())
     .then((blob) => {
-      videoContainer.innerHTML = ""
+      videoContainer.innerHTML = "";
       let h4Elem = document.createElement("h4");
       h4Elem.innerHTML = title;
       let hrElem = document.createElement("hr");
@@ -92,7 +92,6 @@ function cardGenerator(clipObj) {
       videoElem.append(sourceElem);
       videoContainer.append(h4Elem, hrElem, videoElem);
     });
-    
 
   let cardInfo = `
         <hr>
@@ -123,6 +122,10 @@ function cardGenerator(clipObj) {
 
         document.body.removeChild(link);
       });
+  });
+
+  downloadBtn.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
   });
 }
 

@@ -72,6 +72,10 @@ function cardGenerator(mainmajaziObj) {
     })
   });
 
+  downloadBtn.addEventListener("contextmenu" , (e) => {
+      e.preventDefault()
+  })
+
   imageContainer.insertAdjacentHTML("beforeend", cardImg);
   infoContainer.insertAdjacentHTML("beforeend", cardDetails);
 }
