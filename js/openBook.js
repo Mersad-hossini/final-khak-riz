@@ -71,23 +71,7 @@ function cardGenerator(mainTxtObj) {
     `;
 
     downloadPdf.setAttribute("href" , `https://server.khakrizedarya.ir${pdf}`)
-    downloadPdf.addEventListener("click", async (e) => {
-      e.preventDefault()
-    let pdfUrl = `https://server.khakrizedarya.ir${pdf}`;
-    fetch(pdfUrl)
-      .then((response) => response.blob())
-      .then((blob) => {
-        let link = document.createElement("a");
-        link.href = window.URL.createObjectURL(blob);
-        link.download = pdf;
 
-        document.body.appendChild(link);
-
-        link.click();
-
-        document.body.removeChild(link);
-      });
-  });
 
 
   downloadPdf.addEventListener("scroll" , (e) => {
