@@ -2,7 +2,6 @@ let imageContainer = document.querySelector(".image-container");
 let textBookInfo = document.querySelector(".textBook-info");
 let descriptionBook = document.querySelector(".description");
 let downloadPdf = document.querySelector(".download-pdf");
-let showPdf = document.querySelector(".show-pdf");
 
 async function adabiatTextApi() {
   let res = "";
@@ -22,10 +21,10 @@ async function adabiatTextApi() {
 
 function getUrl(textBookArray) {
   let locationSearch = new URLSearchParams(location.search);
-  let getLocation = locationSearch.get("title");
+  let getLocation = locationSearch.get("id");
 
   let mainTxt = textBookArray.find((txt) => {
-    return txt.title === getLocation;
+    return txt.id === Number(getLocation);
   });
 
   if (!mainTxt) {
@@ -71,6 +70,7 @@ function cardGenerator(mainTxtObj) {
     <p>${description}</p>
     `;
 
+    downloadPdf.setAttribute("href" , `https://server.khakrizedarya.ir${pdf}`)
     downloadPdf.addEventListener("click", async (e) => {
       e.preventDefault()
     let pdfUrl = `https://server.khakrizedarya.ir${pdf}`;
@@ -89,11 +89,8 @@ function cardGenerator(mainTxtObj) {
       });
   });
 
-  showPdf.addEventListener("click" , () => {
-    showPdf.href = `./showPdf.html?pdf=${pdf}`
-  })
 
-  downloadPdf.addEventListener("contextmenu" , (e) => {
+  downloadPdf.addEventListener("scroll" , (e) => {
       e.preventDefault()
   })
 

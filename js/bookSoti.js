@@ -22,13 +22,13 @@ function cardGenerator(sotiArray) {
   let card = `
         <div class="col col-sm-6 col-md-4 col-lg-3 justify-content-center d-flex">
         <div class="card h-100" style="width: 16rem;">
-          <a href="./openBookSoti.html?title=${sotiArray.title}">
+          <a href="./openBookSoti.html?id=${sotiArray.id}">
             <img src="https://server.khakrizedarya.ir${sotiArray.image}" class="card-img-top img-fluid" alt="image book">
           </a>
           <div class="card-body pb-0">
             <h5 class="text-start">${sotiArray.title}</h5>
             <p class="card-text text-start">${sotiArray.description.substring(0,30)}...</p>
-            <a href="./openBookSoti.html?title=${sotiArray.title}" class="btn btn-sm btn-success border-0 float-end btnBxBook mb-3">مشاهده</a>
+            <a href="./openBookSoti.html?id=${sotiArray.id}" class="btn btn-sm btn-success border-0 float-end btnBxBook mb-3">مشاهده</a>
           </div>
         </div>
       </div>
@@ -61,6 +61,7 @@ function setUpPagination(sotiArray, pagesContainer, rowsCount) {
 function buttonGenerator(page, sotiArray) {
   let button = document.createElement("button");
   button.innerHTML = page;
+  button.className = "m-2"
 
   if (page === currentPage) {
     button.classList.add("active");

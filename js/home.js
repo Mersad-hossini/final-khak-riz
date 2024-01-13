@@ -61,7 +61,7 @@ $(document).ready(function () {
           <img src="https://server.khakrizedarya.ir${item.audio_image}" alt="" />
           <div class="card-body">
             <h4 class="card-title">${item.title}</h4>
-            <a href="./honariSoundPage.html?title=${item.title}" target="_blank" class="btn btn-sm btn-success border-0 w-100 slider-button">مشاهده</a>
+            <a href="./honariSoundPage.html?id=${item.id}" target="_blank" class="btn btn-sm btn-success border-0 w-100 slider-button">مشاهده</a>
           </div>
         </div>
       </div>`);
@@ -127,7 +127,7 @@ $(document).ready(function () {
           <img src="https://server.khakrizedarya.ir${item.thumbnail}" alt="" />
           <div class="card-body">
             <h5 class="card-title mb-3">${item.title}</h5>
-            <a href="./majaziClipPage.html?title=${item.title}" target="_blank" class="btn btn-sm btn-success border-0 w-100 slider-button">مشاهده</a>
+            <a href="./majaziClipPage.html?id=${item.id}" target="_blank" class="btn btn-sm btn-success border-0 w-100 slider-button">مشاهده</a>
           </div>
         </div>
       </div>`);
@@ -193,7 +193,7 @@ $(document).ready(function () {
           <img src="https://server.khakrizedarya.ir${item.image}" alt="" />
           <div class="card-body">
             <h5 class="card-title mb-3">${item.title}</h5>
-            <a href="./majaziGalleryPage.html?title=${item.title}" target="_blank" class="btn btn-sm btn-success border-0 w-100 slider-button">مشاهده</a>
+            <a href="./majaziGalleryPage.html?id=${item.id}" target="_blank" class="btn btn-sm btn-success border-0 w-100 slider-button">مشاهده</a>
           </div>
         </div>
       </div>`);

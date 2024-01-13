@@ -49,11 +49,11 @@ function cardGenerator(clipArray) {
     let card = `
     <div class="col-lg-3 col col-md-4 col-sm-6 d-flex justify-content-center">
     <div class="card h-100" style="width: 16rem">
-      <a href="./majaziClipPage.html?title=${clipArray.title}"><img src="https://server.khakrizedarya.ir${clipArray.thumbnail}" class="card-img-top img-fluid" alt="image book pdf"/></a>
+      <a href="./majaziClipPage.html?id=${clipArray.id}"><img src="https://server.khakrizedarya.ir${clipArray.thumbnail}" class="card-img-top img-fluid" alt="image book pdf"/></a>
       <div class="card-body">
         <h5 class="card-title fw-bolder">${clipArray.title}</h5>
         <p class="card-text">${clipArray.editing}...</p>
-         <a href="./majaziClipPage.html?title=${clipArray.title}" class="btn btn-success float-end w-100">مشاهده</a>
+         <a href="./majaziClipPage.html?id=${clipArray.id}" class="btn btn-success float-end w-100">مشاهده</a>
       </div>
     </div>
     </div>
@@ -86,6 +86,7 @@ function setUpPagination(majaziArray, pagesContainer, rowsCount) {
 function buttonGenerator(page, majaziArray) {
   let button = document.createElement("button");
   button.innerHTML = page;
+  button.className = "m-2"
 
   if (page === currentPage) {
     button.classList.add("active");

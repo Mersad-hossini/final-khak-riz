@@ -13,7 +13,11 @@
     <link rel="stylesheet" href="./css/navbar.css" />
     <link rel="stylesheet" href="./css/footer.css" />
 
-    <link rel="icon" type="image/x-icon" href="./image/Hefze Asar Logo Vector.png">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./image/Hefze Asar Logo Vector.png"
+    />
     <title>یادمان شهدا</title>
   </head>
 
@@ -23,12 +27,14 @@
         class="top-bar d-none d-md-block"
         style="background-image: url('./image/topheader.png')"
       ></nav>
-  
+
       <nav
         class="navbar sticky-top navbar-dark seconde-bar navbar-expand-lg bg-gradient"
       >
         <div class="container-fluid">
-          <a class="navbar-brand me-auto d-lg-none img-fluid" href="./index.html"
+          <a
+            class="navbar-brand me-auto d-lg-none img-fluid"
+            href="./index.html"
             ><img
               id="nav-logo-smallScreen"
               src="./image/Hefze Asar Logo Vector.png"
@@ -90,14 +96,20 @@
                   </li>
                   <li><hr class="dropdown-divider d-none d-lg-flex" /></li>
                   <li>
-                    <a class="dropdown-item" href="./physicalBook.html">کتابخانه</a>
+                    <a class="dropdown-item" href="./physicalBook.html"
+                      >کتابخانه</a
+                    >
                   </li>
                   <li><hr class="dropdown-divider d-none d-lg-flex" /></li>
                   <li><a class="dropdown-item">امور مهندسی</a></li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link mx-lg-2" aria-current="page" href="./darbareMa.html">
+                <a
+                  class="nav-link mx-lg-2"
+                  aria-current="page"
+                  href="./darbareMa.html"
+                >
                   درباره ما
                 </a>
               </li>
@@ -141,6 +153,10 @@
       </nav>
     </header>
 
+    <div id="go-top">
+      <span id="go-top-value"><img src="./image/arrow-up.svg" alt=""></span>
+    </div>
+
     <section>
       <div class="container-fluid">
         <div class="row">
@@ -173,6 +189,7 @@
                       class="form-check-input float-end"
                       name="allCity"
                       id="allCity"
+                      onchange="toggleAllCheckboxes(this)"
                     />
                   </div>
                   <hr />
@@ -186,12 +203,12 @@
                     />
                   </div>
                   <div class="form-check">
-                    <label for="genave" class="form-check-label">گناوه</label>
+                    <label for="genaveh" class="form-check-label">گناوه</label>
                     <input
                       type="checkbox"
                       class="form-check-input float-end"
-                      name="genave"
-                      id="genave"
+                      name="genaveh"
+                      id="genaveh"
                     />
                   </div>
                   <div class="form-check my-2">
@@ -235,12 +252,12 @@
                     />
                   </div>
                   <div class="form-check my-2">
-                    <label for="dayyer" class="form-check-label">دیر</label>
+                    <label for="dayer" class="form-check-label">دیر</label>
                     <input
                       type="checkbox"
                       class="form-check-input float-end"
-                      name="dayyer"
-                      id="dayyer"
+                      name="dayer"
+                      id="dayer"
                     />
                   </div>
                   <div class="form-check">
@@ -291,10 +308,11 @@
 
     <footer class="pt-5 mt-4 bg-dark text-white bg-gradient">
       <div class="container text-center">
-        <div class="row gy-4 ">
+        <div class="row gy-4">
           <div class="col-md-2 mt-0 p-0">
-            <h4 class="fw-bold mb-3 text-warning" title="خاکریز دریا"> خاکریز دریا</h4>
-
+            <h4 class="fw-bold mb-3 text-warning" title="خاکریز دریا">
+              خاکریز دریا
+            </h4>
 
             <a title="خاکریز دریا" href="./index.html">
               <img
@@ -317,7 +335,7 @@
                 class="rounded-circle img-fluid mb-3 me-2"
               />
             </a>
-           
+
             <a title="پیوند ها" href="https://defapress.ir/" target="_blank">
               <img
                 src="./image/defaperes.png"
@@ -332,10 +350,18 @@
           <div class="col-md-3 mt-3 mt-md-0 mb-md-0 m-0">
             <h4 class="fw-bold text-warning">ارتباط با ما</h4>
             <ul class="list-unstyled m-0">
-              <a target="_blank" class="text-white" href="https://balad.ir/p/%D8%A7%D8%AF%D8%A7%D8%B1%D9%87-%DA%A9%D9%84-%D8%AD%D9%81%D8%B8-%D8%A7%D8%AB%D8%A7%D8%B1-%D9%88-%D9%86%D8%B4%D8%B1-%D8%A7%D8%B1%D8%B2%D8%B4-%D9%87%D8%A7%DB%8C-%D8%AF%D9%81%D8%A7%D8%B9-%D9%85%D9%82%D8%AF%D8%B3-%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%D8%A8%D9%88%D8%B4%D9%87%D8%B1-bushehr_government-organization-and-agency-3RKUxfIizAmicb#15/28.98951/50.83234">
+              <a
+                target="_blank"
+                class="text-white"
+                href="https://balad.ir/p/%D8%A7%D8%AF%D8%A7%D8%B1%D9%87-%DA%A9%D9%84-%D8%AD%D9%81%D8%B8-%D8%A7%D8%AB%D8%A7%D8%B1-%D9%88-%D9%86%D8%B4%D8%B1-%D8%A7%D8%B1%D8%B2%D8%B4-%D9%87%D8%A7%DB%8C-%D8%AF%D9%81%D8%A7%D8%B9-%D9%85%D9%82%D8%AF%D8%B3-%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%D8%A8%D9%88%D8%B4%D9%87%D8%B1-bushehr_government-organization-and-agency-3RKUxfIizAmicb#15/28.98951/50.83234"
+              >
                 <li class="contact-us-map">
                   <img src="./image/map.png" class="me-1" alt="map-Logo" />
-                  <span>بوشهر / خیابان سیراف / جنب درمانگاه سابق ابوالفضل (ع) / اداره کل حفظ و اثار و نشر ارزش های دفاع مقدس استان بوشهر</span>
+                  <span
+                    >بوشهر / خیابان سیراف / جنب درمانگاه سابق ابوالفضل (ع) /
+                    اداره کل حفظ و اثار و نشر ارزش های دفاع مقدس استان
+                    بوشهر</span
+                  >
                 </li>
               </a>
 
@@ -397,12 +423,17 @@
                 <hr />
               </div>
               <div class="col-6 col-sm-5 text-start">
-                <p>کلیه حقوق مادی و معنوی این سایت برای اداره کل حفظ اثار و نشر ارزش های دفاع مقدس بوشهر محفوظ هست - 1402 ©</p>
+                <p>
+                  کلیه حقوق مادی و معنوی این سایت برای اداره کل حفظ اثار و نشر
+                  ارزش های دفاع مقدس بوشهر محفوظ هست - 1402 ©
+                </p>
               </div>
-              <div class="col-6 col-sm-5 offset-sm-2  text-end">
-                <p title="اکادمی استاد">طراحی و توسعه توسط اکادمی پایتون استاد - 1402 ©</p>
+              <div class="col-6 col-sm-5 offset-sm-2 text-end">
+                <p title="اکادمی استاد">
+                  طراحی و توسعه توسط اکادمی پایتون استاد - 1402 ©
+                </p>
               </div>
-            </div>        
+            </div>
           </div>
         </div>
       </div>
@@ -413,14 +444,8 @@
     <!-- Bootstrap Js Link -->
     <script src="./js/bootstrap.bundle.min.js"></script>
     <!-- Js Link -->
+    <script src="./js/navbar.js"></script>
     <script src="./js/yadman.js"></script>
-    <script>
-      let searchBtn = document.getElementById("search-btn");
-      let formSearch = document.getElementById("form-search");
 
-      searchBtn.addEventListener("click", () => {
-        formSearch.submit()
-      });
-    </script>
   </body>
 </html>

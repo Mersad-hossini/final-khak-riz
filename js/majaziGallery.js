@@ -22,11 +22,11 @@ function cardGenerator(majaziArray) {
   let card = `
     <div class="col-lg-3 col col-md-4 col-sm-6 d-flex justify-content-center">
         <div class="card h-100" style="width: 16rem">
-            <a href="./majaziGalleryPage.html?title=${majaziArray.title}"><img src="https://server.khakrizedarya.ir${majaziArray.image}" class="card-img-top img-fluid" alt="image book pdf"/></a>
+            <a href="./majaziGalleryPage.html?id=${majaziArray.id}"><img src="https://server.khakrizedarya.ir${majaziArray.image}" class="card-img-top img-fluid" alt="image book pdf"/></a>
             <div class="card-body">
                 <h5 class="card-title fw-bolder">${majaziArray.title}</h5>
                 <p class="card-text">${majaziArray.designer.substring(0,30)}...</p>
-                <a href="./majaziGalleryPage.html?title=${majaziArray.title}" class="btn btn-success float-end w-100">مشاهده</a>
+                <a href="./majaziGalleryPage.html?id=${majaziArray.id}" class="btn btn-success float-end w-100">مشاهده</a>
             </div>
         </div>
     </div>`;
@@ -59,6 +59,7 @@ function setUpPagination(majaziArray, pagesContainer, rowsCount) {
 function buttonGenerator(page, majaziArray) {
   let button = document.createElement("button");
   button.innerHTML = page;
+  button.className = "m-2"
 
   if (page === currentPage) {
     button.classList.add("active");

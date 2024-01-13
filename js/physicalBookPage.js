@@ -19,10 +19,10 @@ async function physicalBookApi() {
 
 function getUrl(BookArray) {
   let locationSearch = new URLSearchParams(location.search);
-  let getLocation = locationSearch.get("title");
+  let getLocation = locationSearch.get("id");
 
   let mainBook = BookArray.find((book) => {
-    return book.title === getLocation;
+    return book.id === Number(getLocation);
   });
 
   if (!mainBook) {

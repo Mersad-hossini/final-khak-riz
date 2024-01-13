@@ -28,11 +28,12 @@ async function adabiatSotiApi() {
 
 function getUrl(sotiArray) {
   let locationSearch = new URLSearchParams(location.search);
-  let getLocation = locationSearch.get("title");
+  let getLocation = locationSearch.get("id");
 
   let mainSoti = sotiArray.find((soti) => {
-    return soti.title === getLocation;
+    return soti.id === Number(getLocation);
   });
+
 
   if (!mainSoti) {
     window.location.href = "page404.html";
@@ -88,6 +89,7 @@ function cardGenerator(sotiObj) {
       console.error("Error fetching audio file:", error);
     });
 
+  downloadSoundBtn.setAttribute("href" , `https://server.khakrizedarya.ir${audioLink}`)
   downloadSoundBtn.addEventListener("click", async (e) => {
     e.preventDefault();
     let musicUrl = `https://server.khakrizedarya.ir${audioLink}`;
@@ -106,9 +108,7 @@ function cardGenerator(sotiObj) {
         document.body.removeChild(link);
       });
   });
-  downloadSoundBtn.addEventListener("contextmenu" , (e) => {
-      e.preventDefault()
-  })
+
 }
 
 window.addEventListener("load", adabiatSotiApi);

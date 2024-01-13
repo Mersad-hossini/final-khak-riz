@@ -27,10 +27,10 @@ async function honariSoundApi() {
 
 function getUrl(sotiArray) {
   let locationSearch = new URLSearchParams(location.search);
-  let getLocation = locationSearch.get("title");
+  let getLocation = locationSearch.get("id");
 
   let mainSoti = sotiArray.find((soti) => {
-    return soti.title === getLocation;
+    return soti.id === Number(getLocation);
   });
 
   if (!mainSoti) {
@@ -72,7 +72,7 @@ function cardGenerator(sotiObj) {
       .then((blob) => {
         let link = document.createElement("a");
         link.href = window.URL.createObjectURL(blob);
-        link.download = sotiObj.audio;
+        link.setAttribute("download" , sotiObj.audio)
 
         document.body.appendChild(link);
 
@@ -81,10 +81,6 @@ function cardGenerator(sotiObj) {
         document.body.removeChild(link);
       });
   });
-
-  downloadSoundBtn.addEventListener("contextmenu" , (e) => {
-      e.preventDefault()
-  })
 
   fetch(`https://server.khakrizedarya.ir${sotiObj.audio}`)
     .then((res) => res.blob())

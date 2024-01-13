@@ -3,7 +3,8 @@ let goTop = document.getElementById("go-top");
 let goTopValue = document.getElementById("go-top-value");
 
 // ارسال مقادیر سرچ با دکمه ذره بین
-let searchBtn = document.getElementById("search-btn");
+let inputSearch = document.getElementById("input-search");
+let searchBtnIcon = document.getElementById("search-btn");
 let formSearch = document.getElementById("form-search");
 
 // تابع
@@ -19,14 +20,34 @@ function addShadow() {
 
 }
 
-function submitForm() {
-  formSearch.submit();
-}
-
-// افزودن گوش کننده به ایونت‌ها
 document.addEventListener("scroll", addShadow);
-searchBtn.addEventListener("click", submitForm);
 
 goTop.addEventListener("click" , () => {
   document.documentElement.scrollTop = 0;
 })
+
+inputSearch.addEventListener("keydown", (e) => {
+  if (e.keyCode === 13) {
+    const inputValue = inputSearch.value.trim();
+
+    if (!inputValue) {
+      formSearch.setAttribute("action", "./page404.html");
+    } else {
+      formSearch.setAttribute("action", "./resultSearch.html");
+    }
+  }
+});
+
+function submitForm() {
+    const inputValue = inputSearch.value.trim();
+
+    if (!inputValue) {
+      formSearch.setAttribute("action", "./page404.html");
+      formSearch.submit()
+    } else {
+      formSearch.setAttribute("action", "./resultSearch.html");
+      formSearch.submit()
+    }
+}
+
+searchBtnIcon.addEventListener("click", submitForm);

@@ -1,5 +1,5 @@
 let locationSearch = new URLSearchParams(location.search);
-let getLocation = locationSearch.get("name");
+let getLocation = locationSearch.get("id");
 
 let containerInfo = document.querySelector(".container-info");
 let yadmanConainerCard = document.querySelector(".yadman-info");
@@ -36,9 +36,8 @@ async function yadmanSubsetApi() {
 
 function showInfo(yadmanData) {
   let mainYadman = yadmanData.find((yadman) => {
-    return yadman.name === getLocation;
+    return yadman.id === Number(getLocation);
   });
-  console.log(mainYadman);
 
   if (!mainYadman) {
     window.location.href = "page404.html";

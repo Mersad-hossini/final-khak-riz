@@ -24,7 +24,7 @@ function cardGenerator(BookArray) {
         class="col-lg-3 col col-md-4 col-sm-6 d-flex justify-content-center"
         >
         <div class="card h-100" style="width: 16rem">
-            <a href="./physicalBookPage.html?title=${BookArray.title}"
+            <a href="./physicalBookPage.html?id=${BookArray.id}"
             ><img
                 src="https://server.khakrizedarya.ir${BookArray.image}"
                 class="card-img-top img-fluid"
@@ -34,7 +34,7 @@ function cardGenerator(BookArray) {
             <h5 class="card-title fw-bolder">${BookArray.title}</h5>
             <p class="card-text">${BookArray.description.substring(0,30)}...</p>
             <a
-                href="./physicalBookPage.html?title=${BookArray.title}"
+                href="./physicalBookPage.html?id=${BookArray.id}"
                 class="btn btn-success float-end w-100"
                 >مشاهده</a
             >
@@ -70,6 +70,7 @@ function setUpPagination(BookArray, pagesContainer, rowsCount) {
 function buttonGenerator(page, BookArray) {
   let button = document.createElement("button");
   button.innerHTML = page;
+  button.className = "m-2"
   
   if (page === currentPage) {
     button.classList.add("active");

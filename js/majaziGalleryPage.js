@@ -20,10 +20,10 @@ async function majaziGrapicApi() {
 
 function getUrl(majaziArray) {
   let locationSearch = new URLSearchParams(location.search);
-  let getLocation = locationSearch.get("title");
+  let getLocation = locationSearch.get("id");
 
   let mainmajazi = majaziArray.find((majazi) => {
-    return majazi.title === getLocation;
+    return majazi.id === Number(getLocation);
   });
 
   if (!mainmajazi) {
@@ -71,10 +71,6 @@ function cardGenerator(mainmajaziObj) {
       document.body.removeChild(link);
     })
   });
-
-  downloadBtn.addEventListener("contextmenu" , (e) => {
-      e.preventDefault()
-  })
 
   imageContainer.insertAdjacentHTML("beforeend", cardImg);
   infoContainer.insertAdjacentHTML("beforeend", cardDetails);

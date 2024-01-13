@@ -4,21 +4,21 @@ let downloadBtn = document.querySelector(".download");
 
 async function determineApiAndCall() {
   let locationSearch = new URLSearchParams(location.search);
-  let key = "title"; // Adjust the key based on your needs
+  let key = "id"; // Adjust the key based on your needs
   let getlocation = locationSearch.get(key);
 
   let apiConditions = [
     {
       api: filmApi,
-      condition: (data) => data.some((item) => item[key] === getlocation),
+      condition: (data) => data.some((item) => item[key] === Number(getlocation)),
     },
     {
       api: motionApi,
-      condition: (data) => data.some((item) => item[key] === getlocation),
+      condition: (data) => data.some((item) => item[key] === Number(getlocation)),
     },
     {
       api: videoMusicApi,
-      condition: (data) => data.some((item) => item[key] === getlocation),
+      condition: (data) => data.some((item) => item[key] === Number(getlocation)),
     },
     // Add more conditions as needed
   ];
@@ -27,7 +27,7 @@ async function determineApiAndCall() {
     let apiData = await condition.api();
 
     if (apiData && condition.condition(apiData)) {
-      let matchingItem = apiData.find((item) => item[key] === getlocation);
+      let matchingItem = apiData.find((item) => item[key] === Number(getlocation));
 
       if (matchingItem) {
         // Call cardGenerator with the matching item
@@ -36,7 +36,7 @@ async function determineApiAndCall() {
       }
     }
   }
-  window.location.href = "index.html";
+  window.location.href = "./page404.html";
 }
 
 async function filmApi() {
@@ -150,6 +150,7 @@ function cardGenerator(clipObj) {
         let link = document.createElement("a");
         link.href = window.URL.createObjectURL(blob);
         link.download = clip;
+        link.setAttribute("download" , clip)
 
         document.body.appendChild(link);
 
@@ -157,10 +158,6 @@ function cardGenerator(clipObj) {
 
         document.body.removeChild(link);
       });
-  });
-
-  downloadBtn.addEventListener("contextmenu", (e) => {
-    e.preventDefault();
   });
 
   infoContainer.insertAdjacentHTML("beforeend", cardInfo);

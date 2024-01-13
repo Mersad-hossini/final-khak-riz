@@ -4,17 +4,17 @@ let infoContainer = document.querySelector(".info-container");
 
 async function determineApiAndCall() {
   let locationSearch = new URLSearchParams(location.search);
-  let key = "title"; // Adjust the key based on your needs
+  let key = "id"; // Adjust the key based on your needs
   let getlocation = locationSearch.get(key);
 
   let apiConditions = [
     {
       api: clipApi,
-      condition: (data) => data.some((item) => item[key] === getlocation),
+      condition: (data) => data.some((item) => item[key] === Number(getlocation)),
     },
     {
       api: motionApi,
-      condition: (data) => data.some((item) => item[key] === getlocation),
+      condition: (data) => data.some((item) => item[key] === Number(getlocation)),
     },
   ];
 
@@ -22,7 +22,7 @@ async function determineApiAndCall() {
     let apiData = await condition.api();
 
     if (apiData && condition.condition(apiData)) {
-      let matchingItem = apiData.find((item) => item[key] === getlocation);
+      let matchingItem = apiData.find((item) => item[key] === Number(getlocation));
 
       if (matchingItem) {
         cardGenerator(matchingItem);
@@ -107,6 +107,7 @@ function cardGenerator(clipObj) {
 
   downloadBtn.addEventListener("click", async (e) => {
     e.preventDefault();
+    downloadBtn.href = ""
     let clipUrl = `https://server.khakrizedarya.ir${clip}`;
 
     fetch(clipUrl)
@@ -124,9 +125,6 @@ function cardGenerator(clipObj) {
       });
   });
 
-  downloadBtn.addEventListener("contextmenu", (e) => {
-    e.preventDefault();
-  });
 }
 
 window.addEventListener("load", determineApiAndCall);

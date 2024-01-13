@@ -51,14 +51,14 @@ function cardSotiGenerator(newSotiArray) {
     card += `
       <div class="col-lg-3 col col-md-4 col-sm-6 justify-content-center d-flex">
         <div class="card mb-5" style="width: 16rem;">
-          <a href="./openBookSoti.html?title=${soti.title}">
+          <a href="./openBookSoti.html?id=${soti.id}">
             <img src="https://server.khakrizedarya.ir${soti.image}" class="card-img-top img-fluid" alt="...">
           </a>
           <div class="card-body">
             <h4 class="text-start">${soti.title}</h4>
             <p class="card-text text-start">${soti.description.substring(0,30)}...</p>
             <div class="botn">
-              <a href="./openBookSoti.html?title=${soti.title}" class="btn btn-sm btn-success border-0 float-end btnBxBook">مشاهده</a>
+              <a href="./openBookSoti.html?id=${soti.id}" class="btn btn-sm btn-success border-0 float-end btnBxBook">مشاهده</a>
             </div>
           </div>
         </div>
@@ -91,14 +91,14 @@ function cardTextGenerator(newtextBookArray) {
     card += `
       <div class="col-lg-3 col col-md-4 col-sm-6 justify-content-center d-flex">
         <div class="card mb-5 h100" style="width: 16rem;">
-          <a href="./openBook.html?title=${txt.title}">
+          <a href="./openBook.html?id=${txt.id}">
             <img src="https://server.khakrizedarya.ir${txt.image}" class="card-img-top img-fluid" alt="...">
           </a>
           <div class="card-body">
             <h5 class="text-start card-title">${txt.title}</h5>
             <p class="card-text text-start">${txt.description.substring(0,20)}...</p>
             <div class="botn">
-              <a href="./openBook.html?title=${txt.title}" class="btn btn-sm btn-success border-0 float-end btnBxBook">مشاهده</a>
+              <a href="./openBook.html?id=${txt.id}" class="btn btn-sm btn-success border-0 float-end btnBxBook">مشاهده</a>
             </div>
           </div>
         </div>

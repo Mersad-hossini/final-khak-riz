@@ -22,10 +22,10 @@ function cardGenerator(soundObj) {
   let card = `
         <div class="col-lg-3 col col-md-4 col-sm-6 d-flex justify-content-center">
             <div class="card h-100" style="width: 16rem">
-                <a href="./honariSoundPage.html?title=${soundObj.title}"><img loading="lazy" src="https://server.khakrizedarya.ir${soundObj.audio_image}" class="card-img-top img-fluid" alt="image book pdf"/></a>
+                <a href="./honariSoundPage.html?id=${soundObj.id}"><img loading="lazy" src="https://server.khakrizedarya.ir${soundObj.audio_image}" class="card-img-top img-fluid" alt="image book pdf"/></a>
                 <div class="card-body">
                     <h5 class="card-title mb-3 text-center fw-bolder">${soundObj.title}</h5>
-                    <a href="./honariSoundPage.html?title=${soundObj.title}" class="btn btn-success float-end w-100">مشاهده</a>
+                    <a href="./honariSoundPage.html?id=${soundObj.id}" class="btn btn-success float-end w-100">مشاهده</a>
                 </div>
             </div>
         </div>`;
@@ -58,6 +58,7 @@ function setUpPagination(soundArray, pagesContainer, rowsCount) {
 function buttonGenerator(page, soundArray) {
   let button = document.createElement("button");
   button.innerHTML = page;
+  button.className = "m-2"
 
   if (page === currentPage) {
     button.classList.add("active");
